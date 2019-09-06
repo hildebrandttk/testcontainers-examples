@@ -7,3 +7,5 @@
 build
 out
 *.class
+*.mp4
+*.flv
