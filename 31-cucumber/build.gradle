@@ -1,0 +1,33 @@
+plugins {
+   id 'groovy'
+}
+
+dependencies {
+   testCompile "org.testcontainers:testcontainers:1.12.0"
+   testCompile group: 'io.cucumber', name: 'cucumber-java', version: '4.7.2'
+   testCompile group: 'io.cucumber', name: 'cucumber-groovy', version: '4.7.1'
+   testCompile group: 'io.cucumber', name: 'cucumber-testng', version: '4.7.2'
+   testCompile group: 'io.cucumber', name: 'cucumber-picocontainer',
+      version: '4.7.2'
+   testCompile group: 'io.cucumber', name: 'datatable', version: '3.0.0'
+   testCompile 'org.testng:testng:6.14.2'
+   testCompile 'de.monochromata.cucumber:reporting-plugin:3.0.0'
+
+   testCompile group: 'org.codehaus.groovy', name: 'groovy-all',
+      version: '2.5.8'
+   testCompile group: 'org.gebish', name: 'geb-core', version: '3.0.1'
+
+   testCompile "org.testcontainers:selenium:1.12.0"
+   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-api',
+      version: '3.141.59'
+   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java',
+      version: '3.141.59'
+
+   testCompile "org.testcontainers:postgresql:1.12.0"
+   testCompile group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+   testCompile "org.testcontainers:mysql:1.12.0"
+   testCompile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+
+   testCompile "ch.qos.logback:logback-classic:1.2.3"
+}
+

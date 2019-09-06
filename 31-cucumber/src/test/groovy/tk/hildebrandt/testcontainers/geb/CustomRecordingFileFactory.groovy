@@ -1,0 +1,11 @@
+package tk.hildebrandt.testcontainers.geb
+
+import org.testcontainers.containers.RecordingFileFactory
+
+class CustomRecordingFileFactory implements RecordingFileFactory {
+   @Override
+   File recordingFileForTest(File vncRecordingDirectory, String prefix,
+                             boolean succeeded) {
+      return new File(prefix + '.flv', vncRecordingDirectory)
+   }
+}

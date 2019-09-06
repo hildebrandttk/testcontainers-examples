@@ -1,0 +1,17 @@
+#version: '3.1'
+#
+#services:
+postgres:
+  image: postgres:11-userdb
+mysql:
+  image: mysql
+  environment:
+    MYSQL_DATABASE: userdb \
+    MYSQL_USER: userdb \
+    MYSQL_ROOT_PASSWORD: test1234 \
+    MYSQL_PASSWORD: test1234
+adminer:
+  image: adminer
+  links:
+    - "postgres:postgres"
+    - "mysql:mysql"

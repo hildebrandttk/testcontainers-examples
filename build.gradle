@@ -1,0 +1,23 @@
+buildscript {
+   repositories {
+      mavenCentral()
+   }
+   dependencies {
+      classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+   }
+}
+
+version = '1.0.0-bedcon'
+group 'tk.hildebrandt.testcontainers'
+
+subprojects {
+   apply plugin: 'maven'
+   apply plugin: 'java'
+
+   sourceCompatibility = '1.8'
+   targetCompatibility = '1.8'
+
+   repositories {
+      mavenCentral()
+   }
+}

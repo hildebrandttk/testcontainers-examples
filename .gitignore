@@ -1,0 +1,9 @@
+.idea/.name
+.idea/gradle.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/compiler.xml
+.gradle
+build
+out
+*.class

@@ -1,0 +1,6 @@
+dependencies {
+   implementation "org.testcontainers:testcontainers:1.12.0"
+   implementation "ch.qos.logback:logback-classic:1.2.3"
+   implementation "org.testcontainers:postgres:1.12.0"
+   implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+}

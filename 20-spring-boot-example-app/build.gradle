@@ -1,0 +1,27 @@
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+configurations {
+   testCompile {
+      exclude group: 'org.junit', module: 'junit'
+   }
+}
+
+dependencies {
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter',
+      version: '2.1.7.RELEASE'
+   compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc',
+      version: '2.1.7.RELEASE'
+   compile group: 'org.springframework.data', name: 'spring-data-jdbc',
+      version: '1.0.10.RELEASE'
+   compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+   compile group: 'com.h2database', name: 'h2', version: '1.4.199'
+   compile group: 'org.postgresql', name: 'postgresql', version: '42.2.6'
+
+   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine',
+      version: '5.3.2'
+   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api',
+      version: '5.3.2'
+   testCompile group: 'org.springframework.boot',
+      name: 'spring-boot-starter-test', version: '2.1.7.RELEASE'
+}

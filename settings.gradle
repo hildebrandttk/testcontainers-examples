@@ -1,0 +1,23 @@
+rootProject.name = "Examples Testcontainers"
+include ':01-plain', ':11-junit4-per-test', ':12-junit4-per-testclass', ':13-junit5-per-test', ':14-junit5-per-testclass', ':15-junit5-per-testsuite',
+   ':16-junit5-build-container', ':17-junit5-docker-compose', ':20-spring-boot-example-app', ':21-spring-boot-junit-4-per-testclass',
+   ':22-spring-boot-junit-5-per-testclass', ':23-spring-boot-junit-5-per-testsuite', ':24-spring-boot-embedded',
+   ':30-selenium', ':31-selenium-network-testcontainers', ':31-cucumber'
+project(':01-plain').projectDir = "$rootDir/01-plain" as File
+project(':11-junit4-per-test').projectDir = "$rootDir/11-junit4-per-test" as File
+project(':12-junit4-per-testclass').projectDir = "$rootDir/12-junit4-per-testclass" as File
+project(':13-junit5-per-test').projectDir = "$rootDir/13-junit5-per-test" as File
+project(':14-junit5-per-testclass').projectDir = "$rootDir/14-junit5-per-testclass" as File
+project(':15-junit5-per-testsuite').projectDir = "$rootDir/15-junit5-per-testsuite" as File
+project(':16-junit5-build-container').projectDir = "$rootDir/16-junit5-build-container" as File
+project(':17-junit5-docker-compose').projectDir = "$rootDir/17-junit5-docker-compose" as File
+project(':20-spring-boot-example-app').projectDir = "$rootDir/20-spring-boot-example-app" as File
+project(':21-spring-boot-junit-4-per-testclass').projectDir =
+   "$rootDir/21-spring-boot-junit-4-per-testclass" as File
+project(':22-spring-boot-junit-5-per-testclass').projectDir =
+   "$rootDir/22-spring-boot-junit-5-per-testclass" as File
+project(':23-spring-boot-junit-5-per-testsuite').projectDir =
+   "$rootDir/23-spring-boot-junit-5-per-testsuite" as File
+project(':24-spring-boot-embedded').projectDir = "$rootDir/24-spring-boot-embedded" as File
+project(':30-selenium').projectDir = "$rootDir/30-selenium" as File
+project(':31-cucumber').projectDir = "$rootDir/31-cucumber" as File
