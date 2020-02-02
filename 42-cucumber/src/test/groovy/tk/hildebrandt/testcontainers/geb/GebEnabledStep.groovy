@@ -4,11 +4,20 @@ import geb.Browser
 import geb.Configuration
 import geb.ConfigurationLoader
 import geb.Page
+import org.openqa.selenium.chrome.ChromeOptions
+import org.testcontainers.containers.BrowserWebDriverContainer
+import tk.hildebrandt.testcontainers.TestContext
 
 class GebEnabledStep {
 
    String gebConfEnv = null
    String gebConfScript = null
+
+   TestContext testContext
+
+   GebEnabledStep(TestContext testContext) {
+      this.testContext = testContext
+   }
 
    protected Browser browser
 
@@ -23,6 +32,15 @@ class GebEnabledStep {
    }
 
    Browser createBrowser() {
+      // TODO 05 Browser setup
+      testContext.webDriverContainer = new BrowserWebDriverContainer()
+         .withCapabilities(new ChromeOptions())
+         .withRecordingMode(
+            BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
+            new File("out/cucumber"))
+         .withRecordingFileFactory(new CustomRecordingFileFactory())
+      testContext.webDriverContainer.withNetwork(testContext.network)
+      testContext.webDriverContainer.start()
       new Browser(createConf())
    }
 

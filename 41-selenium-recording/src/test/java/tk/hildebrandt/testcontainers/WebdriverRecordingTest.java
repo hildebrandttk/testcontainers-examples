@@ -19,12 +19,9 @@ public class WebdriverRecordingTest {
 
    @Rule
    public BrowserWebDriverContainer CHROME =
+//      TODO enable recoding
       new BrowserWebDriverContainer()
-         .withCapabilities(new ChromeOptions())
-         //TODO withRecordingMode didn't work with junit5
-         .withRecordingMode(
-            BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
-            new File("."));
+         .withCapabilities(new ChromeOptions());
 
    @Test
    public void searchConferenceOnBing() {

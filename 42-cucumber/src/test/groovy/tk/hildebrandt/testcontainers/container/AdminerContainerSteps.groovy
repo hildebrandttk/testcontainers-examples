@@ -19,10 +19,12 @@ class AdminerContainerSteps {
 
    @Given('^a running instance of adminer$')
    public void startAdminerContainer() {
+//TODO 03 SUT (adminer) container
       testContext.adminerContainer = new GenericContainer('adminer')
          .withNetwork(testContext.network)
          .withNetworkAliases("adminer")
          .withExposedPorts(8080)
+//TODO 04 waitStrategy for container
       testContext.adminerContainer.setWaitStrategy(
          Wait.forHttp("/all")
             .forStatusCode(200)
