@@ -1,0 +1,15 @@
+dependencies {
+   compile group: 'org.junit.jupiter', name: 'junit-jupiter-engine',
+      version: junit5Version
+   compile group: 'org.junit.jupiter', name: 'junit-jupiter-api',
+      version: junit5Version
+   compile group: 'org.testcontainers', name: 'testcontainers',
+      version: testContainersVersion
+   compile group: 'org.testcontainers', name: 'junit-jupiter',
+      version: testContainersVersion
+   compile group: 'org.testcontainers', name: 'postgresql',
+      version: testContainersVersion
+   compile group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
+   compile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+}
+

@@ -3,12 +3,40 @@ buildscript {
       mavenCentral()
    }
    dependencies {
-      classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+      classpath("org.springframework.boot:spring-boot-gradle-plugin:2.2.4.RELEASE")
    }
 }
 
-version = '1.0.0-bedcon'
+plugins {
+   id "com.github.ben-manes.versions" version "0.27.0"
+}
+
 group 'tk.hildebrandt.testcontainers'
+
+ext {
+   junit4Version='4.13'
+   junit5Version='5.6.0'
+   testNgVersion='7.1.0'
+
+   testContainersVersion='1.12.5'
+
+   logbackVersion='1.2.3'
+
+   springBootVersion='2.2.4.RELEASE'
+   springDataVersion='1.1.4.RELEASE'
+
+   postgresJdbcDriverVersion='42.2.9'
+   mysqlJdbcDriverVersion='8.0.19'
+   h2JdbcDriverVersion='1.4.200'
+   commonsDbcpVersion='2.7.0'
+
+   groovyVersion='2.5.9'
+   gebVersion='3.3'
+   cucumberVersion='5.1.0'
+   cucumberGroovyVersion='4.7.1'
+   cucumberReportingVersion='4.0.11'
+   seleniumJavaVersion='3.141.59'
+}
 
 subprojects {
    apply plugin: 'maven'
@@ -21,3 +49,4 @@ subprojects {
       mavenCentral()
    }
 }
+

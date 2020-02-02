@@ -1,23 +1,50 @@
 rootProject.name = "Examples Testcontainers"
-include ':01-plain', ':11-junit4-per-test', ':12-junit4-per-testclass', ':13-junit5-per-test', ':14-junit5-per-testclass', ':15-junit5-per-testsuite',
-   ':16-junit5-build-container', ':17-junit5-docker-compose', ':20-spring-boot-example-app', ':21-spring-boot-junit-4-per-testclass',
-   ':22-spring-boot-junit-5-per-testclass', ':23-spring-boot-junit-5-per-testsuite', ':24-spring-boot-embedded',
-   ':30-selenium', ':31-selenium-network-testcontainers', ':31-cucumber'
+include ':01-plain',
+   ':02-jdbc-container',
+   ':03-jdbc-container-init-file',
+   ':04-hard-exit-jvm',
+   ':10-junit4-per-test',
+   ':11-junit4-per-testclass',
+   ':12-junit4-per-testsuite',
+   ':13-junit5-per-test',
+   ':14-junit5-per-testclass',
+   ':15-junit5-per-testsuite',
+   ':16-jdbc-driver-per-test',
+   ':17-jdbc-driver-per-suite',
+   ':20-build-container-dockerfile',
+   ':21-build-container-dsl',
+   ':30-spring-boot-example-app',
+   ':31-spring-boot-junit-4-per-testclass',
+   ':32-spring-boot-junit-5-per-testclass',
+   ':33-spring-boot-junit-5-per-testsuite',
+   ':34-spring-boot-embedded',
+   ':35-spring-boot-testcontainers-jdbc-driver',
+   ':40-selenium',
+   ':41-cucumber',
+   ':42-docker-compose'
 project(':01-plain').projectDir = "$rootDir/01-plain" as File
-project(':11-junit4-per-test').projectDir = "$rootDir/11-junit4-per-test" as File
-project(':12-junit4-per-testclass').projectDir = "$rootDir/12-junit4-per-testclass" as File
+project(':02-jdbc-container').projectDir = "$rootDir/02-jdbc-container" as File
+project(':03-jdbc-container-init-file').projectDir = "$rootDir/03-jdbc-container-init-file" as File
+project(':04-hard-exit-jvm').projectDir = "$rootDir/04-hard-exit-jvm" as File
+project(':10-junit4-per-test').projectDir = "$rootDir/10-junit4-per-test" as File
+project(':11-junit4-per-testclass').projectDir = "$rootDir/11-junit4-per-testclass" as File
+project(':12-junit4-per-testsuite').projectDir = "$rootDir/12-junit4-per-testsuite" as File
 project(':13-junit5-per-test').projectDir = "$rootDir/13-junit5-per-test" as File
 project(':14-junit5-per-testclass').projectDir = "$rootDir/14-junit5-per-testclass" as File
 project(':15-junit5-per-testsuite').projectDir = "$rootDir/15-junit5-per-testsuite" as File
-project(':16-junit5-build-container').projectDir = "$rootDir/16-junit5-build-container" as File
-project(':17-junit5-docker-compose').projectDir = "$rootDir/17-junit5-docker-compose" as File
-project(':20-spring-boot-example-app').projectDir = "$rootDir/20-spring-boot-example-app" as File
-project(':21-spring-boot-junit-4-per-testclass').projectDir =
-   "$rootDir/21-spring-boot-junit-4-per-testclass" as File
-project(':22-spring-boot-junit-5-per-testclass').projectDir =
-   "$rootDir/22-spring-boot-junit-5-per-testclass" as File
-project(':23-spring-boot-junit-5-per-testsuite').projectDir =
-   "$rootDir/23-spring-boot-junit-5-per-testsuite" as File
-project(':24-spring-boot-embedded').projectDir = "$rootDir/24-spring-boot-embedded" as File
-project(':30-selenium').projectDir = "$rootDir/30-selenium" as File
-project(':31-cucumber').projectDir = "$rootDir/31-cucumber" as File
+project(':16-jdbc-driver-per-test').projectDir = "$rootDir/16-jdbc-driver-per-test" as File
+project(':17-jdbc-driver-per-suite').projectDir = "$rootDir/17-jdbc-driver-per-suite" as File
+project(':20-build-container-dockerfile').projectDir = "$rootDir/20-build-container-dockerfile" as File
+project(':21-build-container-dsl').projectDir = "$rootDir/21-build-container-dsl" as File
+project(':30-spring-boot-example-app').projectDir = "$rootDir/30-spring-boot-example-app" as File
+project(':31-spring-boot-junit-4-per-testclass').projectDir =
+   "$rootDir/31-spring-boot-junit-4-per-testclass" as File
+project(':32-spring-boot-junit-5-per-testclass').projectDir =
+   "$rootDir/32-spring-boot-junit-5-per-testclass" as File
+project(':33-spring-boot-junit-5-per-testsuite').projectDir =
+   "$rootDir/33-spring-boot-junit-5-per-testsuite" as File
+project(':34-spring-boot-embedded').projectDir = "$rootDir/34-spring-boot-embedded" as File
+project(':35-spring-boot-testcontainers-jdbc-driver').projectDir = "$rootDir/35-spring-boot-testcontainers-jdbc-driver" as File
+project(':40-selenium').projectDir = "$rootDir/40-selenium" as File
+project(':41-cucumber').projectDir = "$rootDir/41-cucumber" as File
+project(':42-docker-compose').projectDir = "$rootDir/42-docker-compose" as File

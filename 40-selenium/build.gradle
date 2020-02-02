@@ -1,0 +1,10 @@
+dependencies {
+   testCompile group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
+   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java',
+      version: seleniumJavaVersion
+
+   testCompile group: 'junit', name: 'junit', version: junit4Version
+   testCompile group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
+   testCompile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+}
+

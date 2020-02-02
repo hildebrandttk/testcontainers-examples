@@ -28,35 +28,38 @@ class JUnit5PerTest {
 
    @Test
    void createUser() throws SQLException {
-      Connection connection = DriverManager
+      try (Connection connection = DriverManager
          .getConnection(postgreSQLContainer.getJdbcUrl(),
             postgreSQLContainer.getUsername(),
-            postgreSQLContainer.getPassword());
-      try (PreparedStatement preparedStatement =
-              connection.prepareStatement(
-                 "insert into USERS(ID, LAST_NAME, FIRST_NAME) values (?,?,?)")) {
-         preparedStatement.setString(1, "1");
-         preparedStatement.setString(2, "Wurst");
-         preparedStatement.setString(3, "Hans");
-         assertFalse(preparedStatement.execute());
-         Assertions.assertEquals(1, preparedStatement.getUpdateCount());
+            postgreSQLContainer.getPassword())) {
+         try (PreparedStatement preparedStatement =
+                 connection.prepareStatement(
+                    "insert into USERS(ID, LAST_NAME, FIRST_NAME) values (?,?,?)")) {
+            preparedStatement.setString(1, "1");
+            preparedStatement.setString(2, "Wurst");
+            preparedStatement.setString(3, "Hans");
+            assertFalse(preparedStatement.execute());
+            Assertions.assertEquals(1, preparedStatement.getUpdateCount());
+         }
       }
    }
 
    @Test
    void selectExistingUser() throws SQLException {
-      Connection connection = DriverManager
+      try (Connection connection = DriverManager
          .getConnection(postgreSQLContainer.getJdbcUrl(),
             postgreSQLContainer.getUsername(),
-            postgreSQLContainer.getPassword());
-      try (PreparedStatement preparedStatement =
-              connection.prepareStatement(
-                 "select ID, LAST_NAME, FIRST_NAME from USERS where ID=?")) {
-         preparedStatement.setString(1, "666");
-         ResultSet resultSet = preparedStatement.executeQuery();
-         assertTrue(resultSet.next());
-         assertEquals("Wurst", resultSet.getString("LAST_NAME"));
-         assertEquals("Conchita", resultSet.getString("FIRST_NAME"));
+            postgreSQLContainer.getPassword())) {
+         try (PreparedStatement preparedStatement =
+                 connection.prepareStatement(
+                    "select ID, LAST_NAME, FIRST_NAME from USERS where ID=?")) {
+            preparedStatement.setString(1, "666");
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+               assertTrue(resultSet.next());
+               assertEquals("Wurst", resultSet.getString("LAST_NAME"));
+               assertEquals("Conchita", resultSet.getString("FIRST_NAME"));
+            }
+         }
       }
    }
 }

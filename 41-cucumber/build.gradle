@@ -1,0 +1,32 @@
+plugins {
+   id 'groovy'
+}
+
+dependencies {
+   testCompile group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
+   testCompile group: 'io.cucumber', name: 'cucumber-java', version: cucumberVersion
+   testCompile group: 'io.cucumber', name: 'cucumber-groovy', version: cucumberGroovyVersion
+   testCompile group: 'io.cucumber', name: 'cucumber-testng', version: cucumberVersion
+   testCompile group: 'io.cucumber', name: 'cucumber-picocontainer',
+      version: cucumberVersion
+   testCompile group: 'org.testng', name: 'testng', version: testNgVersion
+   testCompile group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: cucumberReportingVersion
+
+   testCompile group: 'org.codehaus.groovy', name: 'groovy-all',
+      version: groovyVersion
+   testCompile group: 'org.gebish', name: 'geb-core', version: gebVersion
+
+   testCompile group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
+   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-api',
+      version: seleniumJavaVersion
+   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java',
+      version: seleniumJavaVersion
+
+   testCompile group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
+   testCompile group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
+   testCompile group: 'org.testcontainers', name: 'mysql', version: testContainersVersion
+   testCompile group: 'mysql', name: 'mysql-connector-java', version: mysqlJdbcDriverVersion
+
+   testCompile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+}
+
