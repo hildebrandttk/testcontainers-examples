@@ -28,6 +28,7 @@ public class JdbcContainerExample {
    }
 
    private static void runContainer() throws Exception {
+//      TODO replace with JdbcContainer
       GenericContainer databaseContainer = new GenericContainer("postgres:12");
       databaseContainer.withLogConsumer(new Slf4jLogConsumer(LOG));
       databaseContainer.addEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD);

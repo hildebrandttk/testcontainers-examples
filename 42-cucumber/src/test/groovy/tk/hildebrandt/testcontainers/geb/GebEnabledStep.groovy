@@ -32,6 +32,7 @@ class GebEnabledStep {
    }
 
    Browser createBrowser() {
+      //TODO 05: Setup browser
       testContext.webDriverContainer = new BrowserWebDriverContainer()
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
