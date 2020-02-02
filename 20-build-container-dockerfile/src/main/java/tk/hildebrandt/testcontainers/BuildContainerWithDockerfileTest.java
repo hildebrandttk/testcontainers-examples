@@ -26,10 +26,8 @@ class BuildContainerWithDockerfileTest {
 
    @Container
    private static GenericContainer POSTGRES_SQL_CONTAINER =
-      new GenericContainer<>(
-         new ImageFromDockerfile()
-            .withDockerfile(new File(DOCKERFILE).toPath())
-      )
+      //TODO build image
+      new GenericContainer<>("postgres:11-userdb")
          .withExposedPorts(5432);
 
    @Test

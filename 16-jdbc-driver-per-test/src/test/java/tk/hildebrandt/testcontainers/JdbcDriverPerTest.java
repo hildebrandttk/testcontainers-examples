@@ -17,7 +17,7 @@ import static junit.framework.TestCase.assertTrue;
 @Testcontainers
 class JdbcDriverPerTest {
 
-   private static final String JDBC_URL = "jdbc:tc:postgresql:11:///userdb?TC_INITSCRIPT=create-user-schema.sql";
+   private static final String JDBC_URL = "jdbc:postgresql:5432:///userdb?TC_INITSCRIPT=create-user-schema.sql";
    private static final String USERNAME = "test";
    private static final String PASSWORD = "test";
 

@@ -16,10 +16,8 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
-@Testcontainers
 class JUnit5PerTest {
 
-   @Container
    private PostgreSQLContainer postgreSQLContainer =
       new PostgreSQLContainer("postgres:11-userdb")
          .withDatabaseName("userdb")

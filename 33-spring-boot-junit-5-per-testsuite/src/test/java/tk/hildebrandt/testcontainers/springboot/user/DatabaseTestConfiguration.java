@@ -15,11 +15,11 @@ public class DatabaseTestConfiguration {
    DataSource dataSource() {
       return DataSourceBuilder
          .create()
-         .url(SpringbootJUnit5PerTestSuite1.POSTGRES_SQL_CONTAINER.getJdbcUrl())
+         .url(AbstractSpringbootJUnit5PerTestSuiteSuperClass.POSTGRES_SQL_CONTAINER.getJdbcUrl())
          .username(
-            SpringbootJUnit5PerTestSuite1.POSTGRES_SQL_CONTAINER.getUsername())
+            AbstractSpringbootJUnit5PerTestSuiteSuperClass.POSTGRES_SQL_CONTAINER.getUsername())
          .password(
-            SpringbootJUnit5PerTestSuite1.POSTGRES_SQL_CONTAINER.getPassword())
+            AbstractSpringbootJUnit5PerTestSuiteSuperClass.POSTGRES_SQL_CONTAINER.getPassword())
          .build();
    }
 }

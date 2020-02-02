@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.junit.Rule;
 import org.junit.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
 
@@ -16,7 +15,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class JUnit4PerTest {
 
-   @Rule
+   //TODO start for every test execution
    public PostgreSQLContainer postgreSQLContainer =
       //to create this image run docker/build.(sh|bat)
       new PostgreSQLContainer("postgres:11-userdb")

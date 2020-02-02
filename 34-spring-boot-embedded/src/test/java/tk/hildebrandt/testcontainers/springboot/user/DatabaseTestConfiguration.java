@@ -12,11 +12,11 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 @EnableJdbcRepositories
 public class DatabaseTestConfiguration {
 
-   @Value("jdbc:postgresql://${embedded.postgresql.host}:${embedded.postgresql.port}/${embedded.postgresql.schema}")
+//   @Value("jdbc:postgresql://${embedded.postgresql.host}:${embedded.postgresql.port}/${embedded.postgresql.schema}")
    private String jdbcUrl;
-   @Value("${embedded.postgresql.user}")
+//   @Value("${embedded.postgresql.user}")
    private String user;
-   @Value("${embedded.postgresql.password}")
+//   @Value("${embedded.postgresql.password}")
    private String password;
 
    @Bean

@@ -10,7 +10,6 @@ class AbstractJUnit5PerTestSuite {
          .withUsername("userdb")
          .withPassword("test1234");
 
-   @BeforeAll
    static void startContainer() {
       POSTGRESQL_CONTAINER.start();
       //GenericContainer implements AutoCloseable, so no need to call stop() afterwards

@@ -14,12 +14,8 @@ public class DatabaseTestConfiguration {
    @Bean
    DataSource dataSource() {
       return DataSourceBuilder
+//         TODO configure DataSourceBuilder
          .create()
-         .url(SpringbootJUnit5PerTestClass.POSTGRES_SQL_CONTAINER.getJdbcUrl())
-         .username(
-            SpringbootJUnit5PerTestClass.POSTGRES_SQL_CONTAINER.getUsername())
-         .password(
-            SpringbootJUnit5PerTestClass.POSTGRES_SQL_CONTAINER.getPassword())
          .build();
    }
 }

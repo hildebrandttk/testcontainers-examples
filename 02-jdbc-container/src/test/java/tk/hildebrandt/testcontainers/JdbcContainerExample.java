@@ -6,13 +6,18 @@ import java.sql.SQLException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 
 public class JdbcContainerExample {
 
    private static final Logger LOG = LoggerFactory.getLogger(
       JdbcContainerExample.class);
+   private static final int POSTGRES_PORT = 5432;
+   private static final String POSTGRES_PASSWORD = "test1234";
+   private static final String POSTGRES_USER = "test";
 
    public static void main(String[] args) {
       try {
@@ -23,12 +28,14 @@ public class JdbcContainerExample {
    }
 
    private static void runContainer() throws Exception {
-      JdbcDatabaseContainer postgresContainer =
-         new PostgreSQLContainer();
-      postgresContainer.start();
-      printDatabaseNameAndVersion(postgresContainer.getJdbcUrl(),
-         postgresContainer.getUsername(), postgresContainer.getPassword());
-      postgresContainer.stop();
+      GenericContainer databaseContainer = new GenericContainer("postgres:12");
+      databaseContainer.withLogConsumer(new Slf4jLogConsumer(LOG));
+      databaseContainer.addEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD);
+      databaseContainer.addEnv("POSTGRES_USER", POSTGRES_USER);
+      databaseContainer.addExposedPort(POSTGRES_PORT);
+      databaseContainer.start();
+//      printDatabaseNameAndVersion()
+      databaseContainer.stop();
    }
 
    private static void printDatabaseNameAndVersion(String jdbcUrl1, String user,

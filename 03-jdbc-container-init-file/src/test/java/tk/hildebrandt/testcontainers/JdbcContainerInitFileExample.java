@@ -15,6 +15,7 @@ public class JdbcContainerInitFileExample {
 
    private static final Logger LOG = LoggerFactory.getLogger(
       JdbcContainerInitFileExample.class);
+   public static final String SCHEMA_SQL = "create-user-schema.sql";
 
    public static void main(String[] args) {
       try {
@@ -26,18 +27,17 @@ public class JdbcContainerInitFileExample {
 
    private static void runContainer() throws Exception {
       JdbcDatabaseContainer postgresContainer =
-         new PostgreSQLContainer("postgres:12")
-         .withInitScript("create-user-schema.sql");
+         new PostgreSQLContainer("postgres:12");
+      //TODO add test data on startup
       postgresContainer.start();
       printDatabaseNameAndVersion(postgresContainer.getJdbcUrl(),
          postgresContainer.getUsername(), postgresContainer.getPassword());
       postgresContainer.stop();
    }
 
-   private static void printDatabaseNameAndVersion(String jdbcUrl1, String user,
+   private static void printDatabaseNameAndVersion(String jdbcUrl, String user,
                                                    String password)
       throws SQLException {
-      String jdbcUrl = jdbcUrl1;
       try (Connection connection = DriverManager
          .getConnection(jdbcUrl, user, password)) {
          PreparedStatement preparedStatement =

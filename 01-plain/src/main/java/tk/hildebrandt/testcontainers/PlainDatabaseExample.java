@@ -26,15 +26,12 @@ public class PlainDatabaseExample {
    }
 
    private static void runContainer() throws Exception {
-      GenericContainer genericContainer = new GenericContainer("postgres:12");
-      genericContainer.withLogConsumer(new Slf4jLogConsumer(LOG));
-      genericContainer.addEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD);
-      genericContainer.addEnv("POSTGRES_USER", POSTGRES_USER);
-      genericContainer.addExposedPort(POSTGRES_PORT);
-      genericContainer.start();
-      String jdbcUrl = generateJdbcUrl(genericContainer);
-      printDatabaseNameAndVersion(jdbcUrl, POSTGRES_USER, POSTGRES_PASSWORD);
-      genericContainer.stop();
+      //TODO create container
+      //TODO log container output
+      //TODO configure container
+      //TODO start container
+      //TODO print database name and version
+      //TODO stop container
    }
 
    private static String generateJdbcUrl(

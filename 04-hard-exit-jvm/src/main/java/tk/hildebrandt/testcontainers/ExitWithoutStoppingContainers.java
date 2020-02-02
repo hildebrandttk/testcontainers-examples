@@ -22,7 +22,8 @@ public class ExitWithoutStoppingContainers {
       attachShutdownHook();
       PostgreSQLContainer container = new PostgreSQLContainer("postgres:12");
       container.start();
-      killMeHard(ExitWithoutStoppingContainers.class);
+      //TODO what happens without stop
+      //TODO what happens without hard exit jvm
    }
 
    private static void attachShutdownHook() {
