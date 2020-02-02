@@ -8,7 +8,6 @@ import tk.hildebrandt.testcontainers.geb.pages.LoginPage
 
 class AdminerSteps extends GebEnabledStep {
 
-
    AdminerSteps(TestContext testContext) {
       super(testContext)
    }
