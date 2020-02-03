@@ -27,11 +27,11 @@ public class PlainDatabaseExample {
 
    private static void runContainer() throws Exception {
       //TODO create container
+      //TODO start container
+      //TODO stop container
       //TODO log container output
       //TODO configure container
-      //TODO start container
       //TODO print database name and version
-      //TODO stop container
    }
 
    private static String generateJdbcUrl(
