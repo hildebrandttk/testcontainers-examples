@@ -9,6 +9,7 @@ class AbstractSpringbootJUnit5PerTestSuiteSuperClass {
       new PostgreSQLContainer("postgres:11-userdb");
 
    @BeforeAll
+   //TODO combined example
    static void startContainer() {
       POSTGRES_SQL_CONTAINER.start();
       //GenericContainer implements AutoCloseable, so no need to call stop() afterwards

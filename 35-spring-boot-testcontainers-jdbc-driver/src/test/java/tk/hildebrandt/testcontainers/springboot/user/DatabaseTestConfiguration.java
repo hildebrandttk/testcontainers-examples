@@ -11,7 +11,7 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories;
 @EnableJdbcRepositories
 public class DatabaseTestConfiguration {
 
-//   TODO fix url
+   //TODO to tc url
    private static final String JDBC_URL = "jdbc:postgresql:5432:///userdb?TC_INITSCRIPT=create-user-schema.sql";
    private static final String USER = "test";
    private static final String PASSWORD = "test";
