@@ -5,12 +5,17 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 import static junit.framework.TestCase.assertFalse;
 
 public class JUnit4PerTestSuite2 extends AbstractJUnit4PerTestSuite {
+   @BeforeClass
+   public static void startContainers() {
+      AbstractJUnit4PerTestSuite.startContainer();
+   }
 
    @Test
    public void createUser() throws SQLException {
