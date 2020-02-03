@@ -20,7 +20,7 @@ import static junit.framework.TestCase.assertTrue;
 
 @Testcontainers
 class JUnit5DockerComposeWaitingTest {
-   private static final int POSTGRESS_PORT = 5432;
+   private static final int POSTGRES_PORT = 5432;
 
    private static final int ADMINER_PORT = 8080;
    private static final String POSTGRES_SERVICE_NAME = "postgres_1";
@@ -30,7 +30,7 @@ class JUnit5DockerComposeWaitingTest {
    private static final DockerComposeContainer COMPOSE_CONTAINER =
       new DockerComposeContainer(new File("docker-compose-adminer.yml"))
          .withLocalCompose(true)
-         .withExposedService(POSTGRES_SERVICE_NAME, POSTGRESS_PORT,
+         .withExposedService(POSTGRES_SERVICE_NAME, POSTGRES_PORT,
             Wait.forListeningPort())
          .withExposedService("adminer_1", ADMINER_PORT,
             Wait.forHttp("/all")
@@ -44,9 +44,9 @@ class JUnit5DockerComposeWaitingTest {
 
    private String generateJdbcUrl() {
       String serviceHost = COMPOSE_CONTAINER
-         .getServiceHost(POSTGRES_SERVICE_NAME, POSTGRESS_PORT);
+         .getServiceHost(POSTGRES_SERVICE_NAME, POSTGRES_PORT);
       Integer servicePort = COMPOSE_CONTAINER
-         .getServicePort(POSTGRES_SERVICE_NAME, POSTGRESS_PORT);
+         .getServicePort(POSTGRES_SERVICE_NAME, POSTGRES_PORT);
       return String
          .format("jdbc:postgresql://%s:%d/userdb?loggerLevel=OFF", serviceHost,
             servicePort);
