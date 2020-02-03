@@ -29,6 +29,7 @@ class JdbcDriverPerSuite {
       DATA_SOURCE_POOL.setUsername(USERNAME);
       DATA_SOURCE_POOL.setPassword(PASSWORD);
       DATA_SOURCE_POOL.setUrl(JDBC_URL);
+      //TODO adjust pool size
       DATA_SOURCE_POOL.setMaxIdle(0);
    }
 
