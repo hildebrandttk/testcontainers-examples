@@ -14,11 +14,6 @@ import static junit.framework.TestCase.assertTrue;
 
 public class JUnit4PerTestSuite1 extends AbstractJUnit4PerTestSuite {
 
-   @BeforeClass
-   public static void startContainers() {
-      AbstractJUnit4PerTestSuite.startContainer();
-   }
-
    @Test
    public void selectExistingUser() throws SQLException {
       try (Connection connection = DriverManager
