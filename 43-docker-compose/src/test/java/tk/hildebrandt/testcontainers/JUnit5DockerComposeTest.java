@@ -20,11 +20,11 @@ import static junit.framework.TestCase.assertTrue;
 @Testcontainers
 class JUnit5DockerComposeTest {
    private static final int POSTGRESS_PORT = 5432;
-
    private static final String POSTGRES_SERVICE_NAME = "db_1";
    private static final File DOCKER_COMPOSE =
       new File("docker-compose-userdb.yml");
    @Container
+   //TODO 01 explain compose syntax
    private static final DockerComposeContainer COMPOSE_CONTAINER =
       new DockerComposeContainer(DOCKER_COMPOSE)
          .withLocalCompose(true)

@@ -24,7 +24,9 @@ class JUnit5DockerComposeWaitingTest {
 
    private static final int ADMINER_PORT = 8080;
    private static final String POSTGRES_SERVICE_NAME = "postgres_1";
+
    @Container
+   //TODO 02 explain wait dsl
    private static final DockerComposeContainer COMPOSE_CONTAINER =
       new DockerComposeContainer(new File("docker-compose-adminer.yml"))
          .withLocalCompose(true)
