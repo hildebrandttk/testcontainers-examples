@@ -15,7 +15,7 @@ public class JdbcContainerInitFileExample {
 
    private static final Logger LOG = LoggerFactory.getLogger(
       JdbcContainerInitFileExample.class);
-   public static final String SCHEMA_SQL = "create-user-schema.sql";
+   private static final String SCHEMA_SQL = "create-user-schema.sql";
 
    public static void main(String[] args) {
       try {

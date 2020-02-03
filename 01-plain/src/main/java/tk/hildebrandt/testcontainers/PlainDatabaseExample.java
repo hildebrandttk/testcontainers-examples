@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.output.Slf4jLogConsumer;
 
 public class PlainDatabaseExample {
 
@@ -16,6 +15,7 @@ public class PlainDatabaseExample {
    private static final int POSTGRES_PORT = 5432;
    private static final String POSTGRES_PASSWORD = "test1234";
    private static final String POSTGRES_USER = "test";
+   public static final String IMAGE_NAME = "postgres";
 
    public static void main(String[] args) {
       try {
