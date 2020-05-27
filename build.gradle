@@ -15,7 +15,7 @@ group 'tk.hildebrandt.testcontainers'
 
 ext {
    junit4Version='4.13'
-   junit5Version='5.6.0'
+   junit5Version='5.6.1'
    testNgVersion='7.1.0'
 
    testContainersVersion='1.12.5'
@@ -31,8 +31,8 @@ ext {
    commonsDbcpVersion='2.7.0'
 
    groovyVersion='2.5.9'
-   gebVersion='3.3'
-   cucumberVersion='5.1.0'
+   gebVersion='3.4'
+   cucumberVersion='5.7.0'
    cucumberGroovyVersion='4.7.1'
    cucumberReportingVersion='4.0.11'
    seleniumJavaVersion='3.141.59'
