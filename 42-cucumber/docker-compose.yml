@@ -1,19 +1,38 @@
 version: '3.1'
 
 services:
-postgres:
-  image: postgres:11-userdb
-  environment:
-    POSTGRES_PASSWORD: test1234
-mysql:
-  image: mysql
-  environment:
-    MYSQL_DATABASE: userdb \
-    MYSQL_USER: userdb \
-    MYSQL_ROOT_PASSWORD: test1234 \
-    MYSQL_PASSWORD: test1234
-adminer:
-  image: adminer
-  links:
-    - "postgres:postgres"
-    - "mysql:mysql"
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: adminertest
+      POSTGRES_USER: adminertest
+      POSTGRES_PASSWORD: test1234
+    networks:
+      - backend-tier
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: adminertest
+      MYSQL_USER: adminertest
+      MYSQL_ROOT_PASSWORD: test1234
+      MYSQL_PASSWORD: test1234
+    volumes:
+      - mysql:/var/lib/mysql
+    restart: always
+    networks:
+      - backend-tier
+    ports:
+      - 3306:3306
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - backend-tier
+      - front-tier
+volumes:
+  mysql: {}
+
+networks:
+  backend-tier:
+  front-tier:
