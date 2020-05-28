@@ -37,6 +37,7 @@ class DbmsContainerSteps {
       testContext.databaseContainer
          .withUsername("adminertest")
          .withPassword("test1234")
+         .withDatabaseName("adminertest")
          .withNetwork(testContext.network)
          .withNetworkAliases(testContext.dbmsType.getNetworkAlias())
          .withLogConsumer(new Slf4jLogConsumer(LOG))

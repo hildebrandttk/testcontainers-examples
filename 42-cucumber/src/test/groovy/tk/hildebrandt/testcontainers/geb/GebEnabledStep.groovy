@@ -50,6 +50,10 @@ class GebEnabledStep {
       browser
    }
 
+   def <T extends Page> T continueAt(Class<T> pageClass){
+      browser.at(pageClass)
+   }
+
    def methodMissing(String name, args) {
       getBrowser()."$name"(*args)
    }
