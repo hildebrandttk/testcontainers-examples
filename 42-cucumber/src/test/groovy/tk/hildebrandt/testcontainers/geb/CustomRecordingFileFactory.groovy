@@ -9,6 +9,6 @@ class CustomRecordingFileFactory implements RecordingFileFactory {
       if(!vncRecordingDirectory.exists()){
          vncRecordingDirectory.mkdirs()
       }
-      return new File(prefix + '.flv', vncRecordingDirectory)
+      return new File(vncRecordingDirectory, prefix + '.flv')
    }
 }

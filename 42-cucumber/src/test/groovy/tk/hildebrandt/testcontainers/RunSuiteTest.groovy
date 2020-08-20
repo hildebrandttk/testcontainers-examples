@@ -17,10 +17,10 @@ class RunSuiteTest extends AbstractTestNGCucumberTests {
    static {
       //redirect JUL Logs to Logback
       SLF4JBridgeHandler.removeHandlersForRootLogger();
-      SLF4JBridgeHandler.install();
+      SLF4JBridgeHandler.install()
    }
 
-   @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
+   @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios", threadPoolSize = 2)
    void runScenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
       super.runScenario(pickleWrapper, featureWrapper)
    }
