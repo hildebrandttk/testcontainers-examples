@@ -25,6 +25,7 @@ public class PlainDatabaseExample {
       }
    }
 
+   @SuppressWarnings("unchecked")
    private static void runContainer() throws Exception {
       GenericContainer genericContainer = new GenericContainer("postgres:12");
       genericContainer.withLogConsumer(new Slf4jLogConsumer(LOG));
@@ -37,6 +38,7 @@ public class PlainDatabaseExample {
       genericContainer.stop();
    }
 
+   @SuppressWarnings("unchecked")
    private static String generateJdbcUrl(
       GenericContainer genericContainer) {
       Integer servicePort = genericContainer.getMappedPort(POSTGRES_PORT);

@@ -28,7 +28,7 @@ public class JUnit4PerTestClass {
             postgreSQLContainer.getPassword())) {
          try (PreparedStatement preparedStatement =
                  connection.prepareStatement(
-                    "insert into USERS(ID, LAST_NAME, FIRST_NAME) values (?,?,?)")) {
+                    "INSERT INTO users_table(id, last_name, first_name) VALUES (?,?,?)")) {
             preparedStatement.setString(1, "1");
             preparedStatement.setString(2, "Wurst");
             preparedStatement.setString(3, "Hans");
@@ -46,7 +46,7 @@ public class JUnit4PerTestClass {
             postgreSQLContainer.getPassword())) {
          try (PreparedStatement preparedStatement =
                  connection.prepareStatement(
-                    "select ID, LAST_NAME, FIRST_NAME from USERS where ID=?")) {
+                    "SELECT id, last_name, first_name FROM users_table WHERE id=?")) {
             preparedStatement.setString(1, "666");
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                assertTrue(resultSet.next());

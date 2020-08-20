@@ -1,8 +1,8 @@
 dependencies {
-   compile group: 'junit', name: 'junit', version: junit4Version
-   compile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
-   compile group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
-   compile group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
-   compile project(':30-spring-boot-example-app')
+   testImplementation group: 'junit', name: 'junit', version: junit4Version
+   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
+   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
+   testImplementation project(':30-spring-boot-example-app')
 }
 

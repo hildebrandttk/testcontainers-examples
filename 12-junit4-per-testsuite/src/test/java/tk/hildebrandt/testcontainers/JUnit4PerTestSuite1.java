@@ -27,7 +27,7 @@ public class JUnit4PerTestSuite1 extends AbstractJUnit4PerTestSuite {
             POSTGRESQL_CONTAINER.getPassword())) {
          try (PreparedStatement preparedStatement =
                  connection.prepareStatement(
-                    "select ID, LAST_NAME, FIRST_NAME from USERS where ID=?")) {
+                    "SELECT id, last_name, first_name FROM users_table WHERE id=?")) {
             preparedStatement.setString(1, "666");
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                assertTrue(resultSet.next());

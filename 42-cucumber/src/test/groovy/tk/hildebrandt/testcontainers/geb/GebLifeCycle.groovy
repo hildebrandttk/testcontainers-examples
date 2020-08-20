@@ -20,7 +20,7 @@ class GebLifeCycle {
          byte[] data = ((TakesScreenshot) testContext.
             getWebDriverContainer().webDriver).
             getScreenshotAs(OutputType.BYTES);
-         testContext.scenario.embed(data, "image/png")
+         testContext.scenario.attach(data, "image/png", "Browser exit")
          //use for development
          new File(new File('.').getAbsoluteFile(), 'out/error.png').
             withOutputStream { stream ->
@@ -40,9 +40,9 @@ class GebLifeCycle {
          }
       }, Optional.empty())
       testContext.webDriverContainer.stop()
-      testContext.scenario.embed(new String(
-         "<video width=\"864\" height=\"576\" controls><source src=\"../${videoFileName}.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>").
-         getBytes(), 'text/html')
+      testContext.scenario.attach(new String(
+         "<video width=\"864\" height=\"576\" controls><source src=\"../${videoFileName}.mp4\" type=\"video/mp4\">Your browser does not support the video tag.</video>"),
+         'text/html', "video")
       testContext.webDriverContainer = null
    }
 }

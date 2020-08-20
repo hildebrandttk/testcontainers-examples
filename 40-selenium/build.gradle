@@ -1,10 +1,12 @@
 dependencies {
-   testCompile group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
-   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java',
+   testImplementation group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
+   testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java',
       version: seleniumJavaVersion
 
-   testCompile group: 'junit', name: 'junit', version: junit4Version
-   testCompile group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
-   testCompile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+   testImplementation group: 'junit', name: 'junit', version: junit4Version
+   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
+
+   testImplementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+   testImplementation group: 'org.slf4j', name: 'jul-to-slf4j', version: slf4jVersion
 }
 
