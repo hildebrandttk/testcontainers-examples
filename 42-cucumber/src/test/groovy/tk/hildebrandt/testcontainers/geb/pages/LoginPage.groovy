@@ -25,13 +25,12 @@ class LoginPage extends Page {
       }
    }
 
-   LoggedInPage login(DatabaseType databaseType) {
+   SelectDatabasePage login(DatabaseType databaseType) {
       dbmsInput.setSelected(databaseType.getAdminerType()) //server for mysql
       serverInput.setText(databaseType.getNetworkAlias())
       usernameInput.setText('adminertest')
       passwordInput.setText('test1234')
-      databaseInput.setText('test')
-      submitButton.click(LoggedInPage)
-      browser.page as LoggedInPage
+      submitButton.click(SelectDatabasePage)
+      browser.page as SelectDatabasePage
    }
 }

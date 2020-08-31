@@ -25,6 +25,7 @@ public class PlainDatabaseExample {
       }
    }
 
+   @SuppressWarnings("unchecked")
    private static void runContainer() throws Exception {
       //TODO create container
       //TODO start container
@@ -34,6 +35,7 @@ public class PlainDatabaseExample {
       //TODO print database name and version
    }
 
+   @SuppressWarnings("unchecked")
    private static String generateJdbcUrl(
       GenericContainer genericContainer) {
       Integer servicePort = genericContainer.getMappedPort(POSTGRES_PORT);

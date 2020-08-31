@@ -1,15 +1,17 @@
 dependencies {
-   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine',
-      version: junit5Version
-   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api',
-      version: junit5Version
-   testCompile group: 'org.testcontainers', name: 'testcontainers',
+   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
+   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
+   testImplementation group: 'org.testcontainers', name: 'testcontainers',
       version: testContainersVersion
-   testCompile group: 'org.testcontainers', name: 'junit-jupiter',
+   testImplementation group: 'org.testcontainers', name: 'junit-jupiter',
       version: testContainersVersion
-   testCompile group: 'org.testcontainers', name: 'postgresql',
+   testImplementation group: 'org.testcontainers', name: 'postgresql',
       version: testContainersVersion
-   testCompile group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
-   testCompile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+   testImplementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
+   testImplementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
 }
 
+test {
+   useJUnitPlatform()
+}

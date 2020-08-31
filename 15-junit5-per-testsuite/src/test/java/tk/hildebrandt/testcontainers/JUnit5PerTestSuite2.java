@@ -22,7 +22,7 @@ class JUnit5PerTestSuite2 extends AbstractJUnit5PerTestSuite {
             POSTGRESQL_CONTAINER.getPassword())) {
          try (PreparedStatement preparedStatement =
                  connection.prepareStatement(
-                    "insert into USERS(ID, LAST_NAME, FIRST_NAME) values (?,?,?)")) {
+                    "INSERT INTO users_table(id, last_name, first_name) VALUES (?,?,?)")) {
             preparedStatement.setInt(1, 1);
             preparedStatement.setString(2, "Wurst");
             preparedStatement.setString(3, "Hans");

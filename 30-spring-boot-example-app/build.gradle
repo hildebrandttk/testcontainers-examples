@@ -1,25 +1,25 @@
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-
+apply plugin: 'java-library'
 dependencies {
-   compile group: 'org.springframework.boot', name: 'spring-boot-dependencies',
+   implementation group: 'org.springframework.boot', name: 'spring-boot-dependencies',
       version: springBootVersion
-   compile group: 'org.springframework.boot', name: 'spring-boot-starter',
+   implementation group: 'org.springframework.boot', name: 'spring-boot-starter',
       version: springBootVersion
-   compile group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc',
+   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc',
       version: springBootVersion
-   compile group: 'org.springframework.data', name: 'spring-data-jdbc',
-      version: springDataVersion
-   compile group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
-   compile group: 'com.h2database', name: 'h2', version: h2JdbcDriverVersion
-   compile group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
+   api group: 'org.springframework.data', name: 'spring-data-jdbc', version: springDataJdbcVersion
+   implementation "org.springframework.data:spring-data-commons:${springBootVersion}"
+   implementation "org.springframework.data:spring-data-relational:${springDataJdbcVersion}"
+   implementation group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
+   implementation group: 'com.h2database', name: 'h2', version: h2JdbcDriverVersion
+   implementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
 
-   testCompile group: 'org.springframework.boot',
+   testImplementation group: 'org.springframework.boot',
       name: 'spring-boot-starter-test', version: springBootVersion
-   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine',
-      version: junit5Version
-   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api',
-      version: junit5Version
+   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
+   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
 }
 
 //Build jar (used in following modules as test target) and bootJar 

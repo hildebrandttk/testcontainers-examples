@@ -1,5 +1,6 @@
 package tk.hildebrandt.testcontainers
 
+import geb.Configuration
 import io.cucumber.java.Scenario
 import org.openqa.selenium.WebDriver
 import org.testcontainers.containers.BrowserWebDriverContainer
@@ -13,12 +14,12 @@ class TestContext {
 
    DatabaseType dbmsType
 
-   String password = 'test1234'
    Network network = Network.newNetwork()
    JdbcDatabaseContainer databaseContainer
    GenericContainer adminerContainer
    BrowserWebDriverContainer webDriverContainer
    Scenario scenario
+   Configuration configuration
 
    TestContext() {
       INSTANCE.set(this)

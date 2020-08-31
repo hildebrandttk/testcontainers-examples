@@ -46,7 +46,7 @@ public class ToDoApplication implements CommandLineRunner {
 
       // Uses JdbcTemplate's batchUpdate operation to bulk load data
       jdbcTemplate.batchUpdate(
-         "INSERT INTO users(first_name, last_name) VALUES (?,?)",
+         "INSERT INTO users_table(first_name, last_name) VALUES (?,?)",
          splitUpNames);
       LOG.info("Querying for users records where first_name = 'Josh':");
    }

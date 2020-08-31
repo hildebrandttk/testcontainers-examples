@@ -1,10 +1,10 @@
 dependencies {
-   testCompile group: 'junit', name: 'junit', version: junit4Version
-   testCompile group: 'org.testcontainers', name: 'testcontainers',
+   testImplementation group: 'junit', name: 'junit', version: junit4Version
+   testImplementation group: 'org.testcontainers', name: 'testcontainers',
       version: testContainersVersion
-   testCompile group: 'org.testcontainers', name: 'postgresql',
+   testImplementation group: 'org.testcontainers', name: 'postgresql',
       version: testContainersVersion
-   testCompile group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
-   testCompile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+   testImplementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
+   testImplementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
 }
 

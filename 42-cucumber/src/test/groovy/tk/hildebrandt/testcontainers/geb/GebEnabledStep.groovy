@@ -10,6 +10,7 @@ import tk.hildebrandt.testcontainers.TestContext
 
 class GebEnabledStep {
 
+   public static final String RECORDING_DIR = "out/cucumber"
    String gebConfEnv = null
    String gebConfScript = null
 
@@ -27,8 +28,10 @@ class GebEnabledStep {
    }
 
    Configuration createConf() {
-      new ConfigurationLoader(gebConfEnv, System.properties,
+      def configuration = new ConfigurationLoader(gebConfEnv, System.properties,
          new GroovyClassLoader(getClass().classLoader)).getConf(gebConfScript)
+      testContext.configuration = configuration
+      configuration
    }
 
    Browser createBrowser() {
@@ -37,7 +40,7 @@ class GebEnabledStep {
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
             BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
-            new File("out/cucumber"))
+            new File(RECORDING_DIR))
          .withRecordingFileFactory(new CustomRecordingFileFactory())
       testContext.webDriverContainer.withNetwork(testContext.network)
       testContext.webDriverContainer.start()
@@ -49,6 +52,10 @@ class GebEnabledStep {
          browser = createBrowser()
       }
       browser
+   }
+
+   def <T extends Page> T continueAt(Class<T> pageClass){
+      browser.at(pageClass)
    }
 
    def methodMissing(String name, args) {

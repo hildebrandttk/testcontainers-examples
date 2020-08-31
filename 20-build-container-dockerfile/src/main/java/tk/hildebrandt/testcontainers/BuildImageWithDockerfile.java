@@ -1,7 +1,6 @@
 package tk.hildebrandt.testcontainers;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,41 +9,42 @@ import java.sql.SQLException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.images.builder.ImageFromDockerfile;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
-@Testcontainers
-class BuildContainerWithDslTest {
+public class BuildImageWithDockerfile {
+   private static final String DOCKERFILE = "src/main/docker/Dockerfile";
+   private static final Logger LOG = LoggerFactory.getLogger(
+      BuildImageWithDockerfile.class);
+   private static final int POSTGRES_PORT = 5432;
+   private static final String POSTGRES_PASSWORD = "test1234";
+   private static final String POSTGRES_USER = "userdb";
 
-   private static final String CREATE_USER_SCHEMA_SQL =
-      "create-user-schema.sql";
-   private static final String DOCKER_ENTRYPOINT_INITDB =
-      "/docker-entrypoint-initdb.d";
-   private static final Path DOCKER_BASE_PATH =
-      new File("src/test/docker").toPath();
+   public static void main(String[] args) {
+      try {
+         runContainer();
+      } catch (Exception ignore) {
+         //
+      }
+   }
 
-   @Container
-   private static GenericContainer POSTGRE_SQL_CONTAINER =
+   private static void runContainer() throws Exception {
+      POSTGRES_SQL_CONTAINER.start();
+      POSTGRES_SQL_CONTAINER.stop();
+   }
+
+   private static GenericContainer POSTGRES_SQL_CONTAINER =
       new GenericContainer<>(
-         //TODO show details
          new ImageFromDockerfile()
-            .withFileFromPath(".", DOCKER_BASE_PATH)
-            .withDockerfileFromBuilder(
-               builder -> builder
-                  .from("postgres")
-                  .add(CREATE_USER_SCHEMA_SQL, DOCKER_ENTRYPOINT_INITDB))
+            .withDockerfile(new File(DOCKERFILE).toPath())
       )
-         .withEnv("POSTGRES_DB", "userdb")
-         .withEnv("POSTGRES_USER", "userdb")
-         .withEnv("POSTGRES_PASSWORD", "test1234")
          .withExposedPorts(5432);
-   ;
 
    @Test
    void createUser() throws SQLException {
@@ -82,10 +82,10 @@ class BuildContainerWithDslTest {
    }
 
    private String generateJdbcUrl() {
-      String serviceHost = POSTGRE_SQL_CONTAINER.getContainerIpAddress();
-      Integer servicePort = POSTGRE_SQL_CONTAINER.getMappedPort(5432);
+      String serviceHost = POSTGRES_SQL_CONTAINER.getContainerIpAddress();
+      Integer servicePort = POSTGRES_SQL_CONTAINER.getMappedPort(5432);
       return String
-         .format("jdbc:postgresql://%s:%d/userdb?loggerLevel=OFF",
-            serviceHost, servicePort);
+         .format("jdbc:postgresql://%s:%d/userdb?loggerLevel=OFF", serviceHost,
+            servicePort);
    }
 }

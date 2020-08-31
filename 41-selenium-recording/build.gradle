@@ -1,10 +1,19 @@
 dependencies {
-   testCompile group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
-   testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java',
+   testImplementation group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
+   testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java',
       version: seleniumJavaVersion
 
-   testCompile group: 'junit', name: 'junit', version: junit4Version
-   testCompile group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
-   testCompile group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
+   testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
+   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
+
+   testImplementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
+   testImplementation group: 'org.slf4j', name: 'jul-to-slf4j', version: slf4jVersion
 }
 
+test {
+   useJUnitPlatform()
+}
