@@ -22,12 +22,14 @@ import static junit.framework.TestCase.assertTrue;
 @Testcontainers
 class BuildContainerWithDockerfileTest {
 
-   private static final String DOCKERFILE = "src/main/docker/Dockerfile";
+   private static final String DOCKERFILE = "src/test/docker/Dockerfile";
 
    @Container
    private static GenericContainer POSTGRES_SQL_CONTAINER =
-      //TODO build image
-      new GenericContainer<>("postgres:11-userdb")
+      new GenericContainer<>(
+         new ImageFromDockerfile()
+            .withDockerfile(new File(DOCKERFILE).toPath())
+      )
          .withExposedPorts(5432);
 
    @Test
