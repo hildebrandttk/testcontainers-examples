@@ -6,3 +6,9 @@ dependencies {
    testImplementation project(':30-spring-boot-example-app')
 }
 
+configurations.all {
+   exclude group: "org.junit", module: "junit-bom"
+   exclude group: "org.junit.jupiter", module: "junit-jupiter"
+   exclude group: "org.junit.platform", module: "junit-platform-engine"
+   exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+}

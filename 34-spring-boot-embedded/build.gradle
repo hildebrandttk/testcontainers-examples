@@ -1,8 +1,8 @@
 dependencies {
    testImplementation group: 'com.playtika.testcontainers',
-      name: 'embedded-postgresql', version: '1.36'
+      name: 'embedded-postgresql', version: embeddedPostgresVersion
    testImplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter',
-      version: '2.2.1.RELEASE'
+      version: springCloudStarterVersion
 
    testImplementation project(':30-spring-boot-example-app')
    testImplementation group: 'org.springframework.boot',
