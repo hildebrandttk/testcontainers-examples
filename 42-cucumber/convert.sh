@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#TODO integrate into test
-
 cd out/cucumber
 for name in `ls *flv`; do
    newName="$(echo "$name" | sed s/flv/mp4/)"
