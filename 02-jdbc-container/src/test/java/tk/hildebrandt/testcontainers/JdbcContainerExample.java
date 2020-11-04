@@ -29,11 +29,14 @@ public class JdbcContainerExample {
 
    private static void runContainer() throws Exception {
 //      TODO replace with JdbcContainer
-      PostgreSQLContainer databaseContainer = new PostgreSQLContainer("postgres:9.6");
-      databaseContainer.withLogConsumer(new Slf4jLogConsumer(LOG));
-      databaseContainer.start();
-      printDatabaseNameAndVersion(databaseContainer.getJdbcUrl(), databaseContainer.getUsername(), databaseContainer.getPassword());
-      databaseContainer.stop();
+      GenericContainer genericContainer = new GenericContainer("postgres:11")
+         .withLogConsumer(new Slf4jLogConsumer(LOG))
+         .withEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD)
+         .withEnv("POSTGRES_USER", POSTGRES_USER)
+         .withExposedPorts(POSTGRES_PORT);
+      genericContainer.start();
+//      printDatabaseNameAndVersion(generateJdbcUrl(genericContainer), POSTGRES_USER, POSTGRES_PASSWORD);
+      genericContainer.stop();
    }
 
    private static void printDatabaseNameAndVersion(String jdbcUrl1, String user,

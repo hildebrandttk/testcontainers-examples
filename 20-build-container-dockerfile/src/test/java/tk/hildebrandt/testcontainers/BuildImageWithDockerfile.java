@@ -1,6 +1,5 @@
 package tk.hildebrandt.testcontainers;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,10 +39,7 @@ public class BuildImageWithDockerfile {
    }
 
    private static GenericContainer POSTGRES_SQL_CONTAINER =
-      new GenericContainer<>(
-         new ImageFromDockerfile()
-            .withDockerfile(new File(DOCKERFILE).toPath())
-      )
+      new GenericContainer<>("postgres:11-userdb")
          .withExposedPorts(5432);
 
    @Test

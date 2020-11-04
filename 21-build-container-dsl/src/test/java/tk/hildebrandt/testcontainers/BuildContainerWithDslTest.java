@@ -35,7 +35,7 @@ class BuildContainerWithDslTest {
    @Container
    private static GenericContainer POSTGRE_SQL_CONTAINER =
       new GenericContainer<>(
-         //TODO show details
+         //TODO copy, env
          new ImageFromDockerfile()
             .withFileFromPath(".", DOCKER_BASE_PATH)
             .withDockerfileFromBuilder(
