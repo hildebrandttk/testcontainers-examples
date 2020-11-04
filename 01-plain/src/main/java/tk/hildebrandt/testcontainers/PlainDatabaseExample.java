@@ -38,7 +38,8 @@ public class PlainDatabaseExample {
    @SuppressWarnings("unchecked")
    private static String generateJdbcUrl(
       GenericContainer genericContainer) {
-      Integer servicePort = genericContainer.getMappedPort(POSTGRES_PORT);
+//      TODO integrate port mapping
+      Integer servicePort = POSTGRES_PORT;
       return String
          .format("jdbc:postgresql://localhost:%d/?loggerLevel=OFF",
             servicePort);

@@ -19,6 +19,7 @@ import static junit.framework.TestCase.assertTrue;
 class JUnit5PerTest {
 
    //TODO start container
+   //junit4   @Rule
    private PostgreSQLContainer postgreSQLContainer =
       new PostgreSQLContainer("postgres:11-userdb")
          .withDatabaseName("userdb")
