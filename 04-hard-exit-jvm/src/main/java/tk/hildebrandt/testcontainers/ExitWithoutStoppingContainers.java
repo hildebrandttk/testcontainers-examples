@@ -24,12 +24,15 @@ public class ExitWithoutStoppingContainers {
       container.start();
       //TODO what happens without stop
       //TODO what happens without hard exit jvm
+      Thread.sleep(5000);
    }
 
    private static void attachShutdownHook() {
       Runtime.getRuntime().addShutdownHook(new Thread(
-         () -> System.out
-            .println("******************** EXIT ********************")));
+         () -> {
+            System.out
+               .println("******************** EXIT ********************")
+         }));
    }
 
    private static void killMeHard(
@@ -37,9 +40,8 @@ public class ExitWithoutStoppingContainers {
       if (System.getProperty("os.name").contains("Windows")) {
          throw new RuntimeException("this kill method will run on *ix only.");
       }
-      String[] killMe = new String[]{"sh", "-c", String.format(
-         "kill -9 $(jps | grep " + mainClass
-            .getSimpleName() + "| awk '{print $1}')")};
+      String killCommand = String.format("kill -9 $(ps -Af | grep %s | grep -v grep | awk '{print $2}')", mainClass.getSimpleName());
+      String[] killMe = new String[]{"sh", "-c", killCommand};
       Process exec = Runtime.getRuntime().exec(killMe);
       while (exec.isAlive()) {
          byte[] buffer = new byte[1024];

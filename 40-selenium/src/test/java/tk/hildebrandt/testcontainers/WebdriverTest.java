@@ -1,11 +1,10 @@
 package tk.hildebrandt.testcontainers;
 
-import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,15 +28,16 @@ public class WebdriverTest {
     @Test
     public void searchConferenceOnBing() {
 //      TODO init WebDriver
-        RemoteWebDriver webDriver = null;
+        RemoteWebDriver webDriver = new ChromeDriver();
         webDriver.get("https://www.bing.com");
         WebDriverWait wait = new WebDriverWait(webDriver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(By.id("sb_form_q")));
         WebElement searchField = webDriver.findElement(By.id("sb_form_q"));
-        searchField.sendKeys("german testing day");
+        searchField.sendKeys("wjax");
         webDriver.findElement(By.cssSelector("label[for=sb_form_go]")).click();
         WebElement conferenceLink =
                 webDriver.findElement(By.cssSelector("li.b_algo h2 a"));
-        assertEquals("https://www.germantestingday.info/", conferenceLink.getAttribute("href"));
+        assertEquals("https://jax.de/", conferenceLink.getAttribute("href"));
+        webDriver.close();
     }
 }

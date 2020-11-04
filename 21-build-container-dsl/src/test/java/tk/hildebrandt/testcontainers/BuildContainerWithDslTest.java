@@ -29,6 +29,9 @@ class BuildContainerWithDslTest {
    private static final Path DOCKER_BASE_PATH =
       new File("src/test/docker").toPath();
 
+   public static final String POSTGRES_DB = "userdb";
+   public static final String POSTGRES_USER = "userdb";
+   public static final String POSTGRES_PASSWORD = "test1234";
    @Container
    private static GenericContainer POSTGRE_SQL_CONTAINER =
       new GenericContainer<>(
@@ -38,11 +41,8 @@ class BuildContainerWithDslTest {
             .withDockerfileFromBuilder(
                builder -> builder
                   .from("postgres")
-                  .add(CREATE_USER_SCHEMA_SQL, DOCKER_ENTRYPOINT_INITDB))
+            )
       )
-         .withEnv("POSTGRES_DB", "userdb")
-         .withEnv("POSTGRES_USER", "userdb")
-         .withEnv("POSTGRES_PASSWORD", "test1234")
          .withExposedPorts(5432);
    ;
 

@@ -29,8 +29,8 @@ public class WebdriverRecordingTest {
    public BrowserWebDriverContainer CHROME =
       new BrowserWebDriverContainer()
          .withCapabilities(new ChromeOptions())
-         //TODO enable recording
-         ;
+      //TODO enable recording
+      ;
 
    @Test
    public void searchConferenceOnBing() {
@@ -39,10 +39,10 @@ public class WebdriverRecordingTest {
       WebDriverWait wait = new WebDriverWait(webDriver, 10);
       wait.until(ExpectedConditions.elementToBeClickable(By.id("sb_form_q")));
       WebElement searchField = webDriver.findElement(By.id("sb_form_q"));
-      searchField.sendKeys("german testing day");
+      searchField.sendKeys("wjax");
       webDriver.findElement(By.cssSelector("label[for=sb_form_go]")).click();
       WebElement conferenceLink =
          webDriver.findElement(By.cssSelector("li.b_algo h2 a"));
-      assertEquals("https://www.germantestingday.info/", conferenceLink.getAttribute("href"));
+      assertEquals("https://jax.de/", conferenceLink.getAttribute("href"));
    }
 }
