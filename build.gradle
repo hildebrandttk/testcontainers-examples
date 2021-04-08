@@ -33,22 +33,32 @@ subprojects {
             "org.junit.jupiter:junit-jupiter-api:${junit5Version}",
             "org.junit.jupiter:junit-jupiter:${junit5Version}",
             "org.junit.vintage:junit-vintage-engine:${junit5Version}",
-            "org.codehaus.groovy:groovy-all:${groovyVersion}",
+            "org.apiguardian:apiguardian-api:1.1.1",
             "io.cucumber:cucumber-core:${cucumberVersion}",
             "org.apache.ant:ant:${antVersion}",
             "org.apache.ant:ant-launcher:${antVersion}",
             "io.cucumber:messages:13.0.1",
-            "org.apache.commons:commons-lang3:3.9",
+            "org.apache.commons:commons-lang3:3.12.0",
             "commons-logging:commons-logging:1.2",
-            "com.google.guava:guava:27.1-jre",
+            "net.java.dev.jna:jna:5.5.0",
+            "com.google.guava:guava:30.1.1-jre",
             "org.testng:testng:${testNgVersion}",
             "org.checkerframework:checker-qual:3.5.0"
 
          eachDependency { DependencyResolveDetails details ->
+            if (details.requested.group == 'org.codehaus.groovy') {
+               details.useVersion groovyVersion
+            }
             if (details.requested.group == 'org.testcontainers') {
                details.useVersion testContainersVersion
             }
-            if (details.requested.group == 'org.springframework.boot' && details.requested.name.endsWith("-starter")) {
+            if (details.requested.group.startsWith('com.fasterxml.jackson')) {
+               details.useVersion '2.12.2'
+            }
+            if (details.requested.group == 'org.springframework') {
+               details.useVersion springVersion
+            }
+            if (details.requested.group == 'org.springframework.boot') {
                details.useVersion springBootVersion
             }
          }
