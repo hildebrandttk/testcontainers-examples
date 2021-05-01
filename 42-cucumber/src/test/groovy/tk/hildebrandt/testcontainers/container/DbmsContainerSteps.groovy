@@ -20,7 +20,7 @@ class DbmsContainerSteps {
    }
 
    @Given('^A running database instance of type (postgres|mysql) with version (latest|[0-9.]*)$')
-   public void startDatabaseContainer(String type, String version) {
+   void startDatabaseContainer(String type, String version) {
       testContext.dbmsType = DatabaseType.byDockerImageName(type)
       switch (testContext.dbmsType) {
          case DatabaseType.POSTGRES:

@@ -36,11 +36,11 @@ public class ExitWithoutStoppingContainers {
       if (System.getProperty("os.name").contains("Windows")) {
          throw new RuntimeException("this kill method will run on *ix only.");
       }
-      String[] killMe = new String[]{"sh", "-c", String.format(
-         "kill -9 $(jps | grep " + mainClass
-            .getSimpleName() + "| awk '{print $1}')")};
+      String[] killMe = new String[]{"sh", "-c", "kill -9 $(jps | grep " + mainClass
+         .getSimpleName() + "| awk '{print $1}')"};
       Process exec = Runtime.getRuntime().exec(killMe);
-      while (exec.isAlive()) {
+      long start = System.currentTimeMillis();
+      while (System.currentTimeMillis() - start < 10_000) {
          byte[] buffer = new byte[1024];
          int len;
          while ((len = exec.getInputStream().read(buffer)) != -1) {
@@ -48,5 +48,6 @@ public class ExitWithoutStoppingContainers {
          }
          System.out.println("not killed yet");
       }
+      System.out.println("Timeout");
    }
 }

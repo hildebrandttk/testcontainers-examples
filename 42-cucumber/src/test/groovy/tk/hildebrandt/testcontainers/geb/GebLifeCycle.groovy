@@ -23,7 +23,7 @@ class GebLifeCycle {
    }
 
    @After(order = 1)
-   public void closeBrowser() {
+   void closeBrowser() {
       if (testContext.scenario.failed) {
          byte[] data = ((TakesScreenshot) testContext.
             getWebDriverContainer().webDriver).
