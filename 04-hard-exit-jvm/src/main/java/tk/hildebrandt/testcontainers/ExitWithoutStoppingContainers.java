@@ -29,10 +29,8 @@ public class ExitWithoutStoppingContainers {
 
    private static void attachShutdownHook() {
       Runtime.getRuntime().addShutdownHook(new Thread(
-         () -> {
-            System.out
-               .println("******************** EXIT ********************")
-         }));
+         () -> System.out
+            .println("******************** EXIT ********************")));
    }
 
    private static void killMeHard(
@@ -40,10 +38,11 @@ public class ExitWithoutStoppingContainers {
       if (System.getProperty("os.name").contains("Windows")) {
          throw new RuntimeException("this kill method will run on *ix only.");
       }
-      String killCommand = String.format("kill -9 $(ps -Af | grep %s | grep -v grep | awk '{print $2}')", mainClass.getSimpleName());
-      String[] killMe = new String[]{"sh", "-c", killCommand};
+      String[] killMe = new String[]{"sh", "-c", "kill -9 $(jps | grep " + mainClass
+         .getSimpleName() + "| awk '{print $1}')"};
       Process exec = Runtime.getRuntime().exec(killMe);
-      while (exec.isAlive()) {
+      long start = System.currentTimeMillis();
+      while (System.currentTimeMillis() - start < 10_000) {
          byte[] buffer = new byte[1024];
          int len;
          while ((len = exec.getInputStream().read(buffer)) != -1) {
@@ -51,5 +50,6 @@ public class ExitWithoutStoppingContainers {
          }
          System.out.println("not killed yet");
       }
+      System.out.println("Timeout");
    }
 }
