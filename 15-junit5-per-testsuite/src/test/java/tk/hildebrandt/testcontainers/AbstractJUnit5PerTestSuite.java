@@ -1,5 +1,6 @@
 package tk.hildebrandt.testcontainers;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 

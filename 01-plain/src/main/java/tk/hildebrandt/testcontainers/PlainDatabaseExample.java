@@ -30,14 +30,7 @@ public class PlainDatabaseExample {
 
    @SuppressWarnings("unchecked")
    private static void runContainer() throws Exception {
-      GenericContainer genericContainer = new GenericContainer("postgres:11")
-         .withLogConsumer(new Slf4jLogConsumer(LOG))
-         .withEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD)
-         .withEnv("POSTGRES_USER", POSTGRES_USER)
-         .withExposedPorts(POSTGRES_PORT);
-      genericContainer.start();
-      printDatabaseNameAndVersion(generateJdbcUrl(genericContainer), POSTGRES_USER, POSTGRES_PASSWORD);
-      genericContainer.stop();
+      //TODO requirements: grade, java, docker, nothing else!
       //TODO create container
       //TODO start container
       //TODO stop container
@@ -49,7 +42,7 @@ public class PlainDatabaseExample {
    @SuppressWarnings("unchecked")
    private static String generateJdbcUrl(
       GenericContainer genericContainer) {
-//      TODO integrate port mapping
+//      TODO port mapping
       Integer servicePort = genericContainer.getMappedPort(POSTGRES_PORT);
       return String
          .format("jdbc:postgresql://localhost:%d/?loggerLevel=OFF",

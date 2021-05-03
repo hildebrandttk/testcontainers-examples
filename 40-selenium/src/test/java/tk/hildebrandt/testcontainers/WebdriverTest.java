@@ -33,7 +33,7 @@ public class WebdriverTest {
         WebDriverWait wait = new WebDriverWait(webDriver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(By.id("sb_form_q")));
         WebElement searchField = webDriver.findElement(By.id("sb_form_q"));
-        searchField.sendKeys("wjax");
+        searchField.sendKeys("jax");
         webDriver.findElement(By.cssSelector("label[for=sb_form_go]")).click();
         WebElement conferenceLink =
                 webDriver.findElement(By.cssSelector("li.b_algo h2 a"));
