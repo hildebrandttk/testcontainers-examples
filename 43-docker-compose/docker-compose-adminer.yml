@@ -12,6 +12,3 @@ mysql:
     MYSQL_PASSWORD: test1234
 adminer:
   image: adminer
-  links:
-    - "postgres:postgres"
-    - "mysql:mysql"

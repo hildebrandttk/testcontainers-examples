@@ -1,5 +1,7 @@
 package tk.hildebrandt.testcontainers;
 
+import java.io.File;
+
 import org.junit.BeforeClass;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -24,7 +26,7 @@ public class WebdriverTest {
 
    @ClassRule
    public static BrowserWebDriverContainer CHROME =
-      new BrowserWebDriverContainer()
+      new BrowserWebDriverContainer("selenium/standalone-chrome-debug:3.141.59-20210713")
          .withCapabilities(new ChromeOptions());
 
    @Test

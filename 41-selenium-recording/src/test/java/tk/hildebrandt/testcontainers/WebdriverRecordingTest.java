@@ -27,7 +27,7 @@ public class WebdriverRecordingTest {
 
    @Container
    public BrowserWebDriverContainer CHROME =
-      new BrowserWebDriverContainer()
+      new BrowserWebDriverContainer("selenium/standalone-chrome-debug:3.141.59-20210713")
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
             BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
