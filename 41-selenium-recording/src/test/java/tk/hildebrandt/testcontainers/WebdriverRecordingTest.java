@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.testcontainers.containers.BrowserWebDriverContainer;
+import org.testcontainers.containers.VncRecordingContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -31,7 +32,8 @@ public class WebdriverRecordingTest {
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
             BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
-            new File("."));
+            new File("."),
+            VncRecordingContainer.VncRecordingFormat.MP4);
 
    @Test
    public void searchConferenceOnBing() {

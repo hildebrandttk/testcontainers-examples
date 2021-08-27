@@ -6,6 +6,7 @@ import geb.ConfigurationLoader
 import geb.Page
 import org.openqa.selenium.chrome.ChromeOptions
 import org.testcontainers.containers.BrowserWebDriverContainer
+import org.testcontainers.containers.VncRecordingContainer
 import tk.hildebrandt.testcontainers.TestContext
 
 class GebEnabledStep {
@@ -39,7 +40,8 @@ class GebEnabledStep {
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
             BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
-            new File(RECORDING_DIR))
+            new File(RECORDING_DIR),
+            VncRecordingContainer.VncRecordingFormat.MP4)
          .withRecordingFileFactory(new CustomRecordingFileFactory())
       testContext.webDriverContainer.withNetwork(testContext.network)
       testContext.webDriverContainer.start()
