@@ -1,10 +1,6 @@
 package tk.hildebrandt.testcontainers;
 
-import java.io.File;
-
-import org.junit.BeforeClass;
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,9 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.testcontainers.containers.BrowserWebDriverContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static junit.framework.TestCase.assertEquals;
 
+@Testcontainers
 public class WebdriverTest {
 
    static {
@@ -24,7 +23,7 @@ public class WebdriverTest {
       SLF4JBridgeHandler.install();
    }
 
-   @ClassRule
+   @Container
    public static BrowserWebDriverContainer CHROME =
       new BrowserWebDriverContainer()
          .withCapabilities(new ChromeOptions());

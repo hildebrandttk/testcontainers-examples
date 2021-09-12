@@ -27,7 +27,7 @@ public class WebdriverRecordingTest {
    }
 
    @Container
-   public BrowserWebDriverContainer CHROME =
+   public static BrowserWebDriverContainer CHROME =
       new BrowserWebDriverContainer()
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
