@@ -19,7 +19,7 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 public class BuildImageWithDockerfile {
-   private static final String DOCKERFILE = "src/test/docker/Dockerfile";
+   private static final String DOCKERFILE = "src/main/docker/Dockerfile";
    private static final Logger LOG = LoggerFactory.getLogger(
       BuildImageWithDockerfile.class);
    private static final int POSTGRES_PORT = 5432;

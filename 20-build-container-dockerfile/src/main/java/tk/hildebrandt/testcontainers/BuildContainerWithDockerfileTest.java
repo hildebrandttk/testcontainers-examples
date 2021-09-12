@@ -23,7 +23,7 @@ import static junit.framework.TestCase.assertTrue;
 @Testcontainers
 class BuildContainerWithDockerfileTest {
 
-   private static final Path DOCKERFILE = new File("src/test/docker/Dockerfile").toPath();
+   private static final Path DOCKERFILE = new File("src/main/docker/Dockerfile").toPath();
 
    @Container
    private static GenericContainer POSTGRES_SQL_CONTAINER =
