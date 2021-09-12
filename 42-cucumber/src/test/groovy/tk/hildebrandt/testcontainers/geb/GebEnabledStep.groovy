@@ -36,7 +36,7 @@ class GebEnabledStep {
    }
 
    Browser createBrowser() {
-      testContext.webDriverContainer = new BrowserWebDriverContainer("selenium/standalone-chrome-debug:3.141.59-20210713")
+      testContext.webDriverContainer = new BrowserWebDriverContainer()
          .withCapabilities(new ChromeOptions())
          .withRecordingMode(
             BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,

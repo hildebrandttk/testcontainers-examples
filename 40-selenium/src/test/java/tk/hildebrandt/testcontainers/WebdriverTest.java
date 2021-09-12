@@ -26,7 +26,7 @@ public class WebdriverTest {
 
    @ClassRule
    public static BrowserWebDriverContainer CHROME =
-      new BrowserWebDriverContainer("selenium/standalone-chrome-debug:3.141.59-20210713")
+      new BrowserWebDriverContainer()
          .withCapabilities(new ChromeOptions());
 
    @Test
