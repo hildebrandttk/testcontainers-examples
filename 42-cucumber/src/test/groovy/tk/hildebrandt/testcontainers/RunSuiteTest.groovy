@@ -14,6 +14,7 @@ import org.testng.annotations.Test
    glue = ["tk.hildebrandt.testcontainers"]
 )
 class RunSuiteTest extends AbstractTestNGCucumberTests {
+   //TODO if you get testng dtd errors, add "-Dtestng.dtd.http=true" to the command line
    static {
       //redirect JUL Logs to Logback
       SLF4JBridgeHandler.removeHandlersForRootLogger();

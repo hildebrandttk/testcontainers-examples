@@ -20,8 +20,8 @@ public class PlainDatabaseExample {
    public static void main(String[] args) {
       try {
          runContainer();
-      } catch (Exception ignore) {
-         //
+      } catch (Exception e) {
+         LOG.error("Error running container", e);
       }
    }
 

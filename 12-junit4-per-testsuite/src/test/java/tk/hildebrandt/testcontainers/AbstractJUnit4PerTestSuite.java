@@ -1,6 +1,5 @@
 package tk.hildebrandt.testcontainers;
 
-import org.junit.BeforeClass;
 import org.testcontainers.containers.PostgreSQLContainer;
 
 class AbstractJUnit4PerTestSuite {

@@ -34,10 +34,9 @@ public class JdbcContainerInitFileExample {
       postgresContainer.stop();
    }
 
-   private static void printDatabaseNameAndVersion(String jdbcUrl1, String user,
+   private static void printDatabaseNameAndVersion(String jdbcUrl, String user,
                                                    String password)
       throws SQLException {
-      String jdbcUrl = jdbcUrl1;
       try (Connection connection = DriverManager
          .getConnection(jdbcUrl, user, password)) {
          PreparedStatement preparedStatement =
