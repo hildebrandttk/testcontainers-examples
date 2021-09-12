@@ -25,16 +25,18 @@ class DbmsContainerSteps {
       switch (testContext.dbmsType) {
          case DatabaseType.POSTGRES:
             testContext.databaseContainer =
-               new PostgreSQLContainer("${type}:${version}")
+               //TODO 01 create database container
+               null
             break
          case DatabaseType.MYSQL:
-            testContext.databaseContainer =
-               new MySQLContainer("${type}:${version}")
+            testContext.databaseContainer = null
+            //TODO 01 create database container
             break
          default:
             throw new IllegalArgumentException("Not supported dbms ${type}")
       }
       testContext.databaseContainer
+//      TODO 02 db settings
          .withUsername("adminertest")
          .withPassword("test1234")
          .withDatabaseName("adminertest")

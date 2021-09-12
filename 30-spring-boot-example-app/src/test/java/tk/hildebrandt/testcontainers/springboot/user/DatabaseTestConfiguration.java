@@ -11,7 +11,9 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @TestConfiguration
 @EnableJdbcRepositories
 public class DatabaseTestConfiguration {
+
    @Bean
+//TODO this test didn't use test containers
    DataSource dataSource() {
       return new EmbeddedDatabaseBuilder()
          .generateUniqueName(true)

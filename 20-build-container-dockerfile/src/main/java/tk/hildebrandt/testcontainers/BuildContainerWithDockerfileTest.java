@@ -1,6 +1,7 @@
 package tk.hildebrandt.testcontainers;
 
 import java.io.File;
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,13 +23,12 @@ import static junit.framework.TestCase.assertTrue;
 @Testcontainers
 class BuildContainerWithDockerfileTest {
 
-   private static final String DOCKERFILE = "src/main/docker/Dockerfile";
+   private static final Path DOCKERFILE = new File("src/test/docker/Dockerfile").toPath();
 
    @Container
    private static GenericContainer POSTGRES_SQL_CONTAINER =
       new GenericContainer<>(
-         new ImageFromDockerfile()
-            .withDockerfile(new File(DOCKERFILE).toPath())
+         "postgres:11-userdb"
       )
          .withExposedPorts(5432);
 

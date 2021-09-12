@@ -15,11 +15,7 @@ public class DatabaseTestConfiguration {
    DataSource dataSource() {
       return DataSourceBuilder
          .create()
-         .url(SpringbootJUnit4PerTestClass.POSTGRES_SQL_CONTAINER.getJdbcUrl())
-         .username(
-            SpringbootJUnit4PerTestClass.POSTGRES_SQL_CONTAINER.getUsername())
-         .password(
-            SpringbootJUnit4PerTestClass.POSTGRES_SQL_CONTAINER.getPassword())
+         //TODO configure DataSourceBuilder
          .build();
    }
 }

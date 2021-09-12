@@ -9,17 +9,15 @@ import java.sql.SQLException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
-@Testcontainers
 class JUnit5PerTest {
 
-   @Container
+   //TODO start container
+   //junit4   @Rule
    private PostgreSQLContainer postgreSQLContainer =
       new PostgreSQLContainer("postgres:11-userdb")
          .withDatabaseName("userdb")

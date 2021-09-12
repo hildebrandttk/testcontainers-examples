@@ -25,6 +25,7 @@ class JUnit5DockerComposeTest {
    private static final File DOCKER_COMPOSE =
       new File("docker-compose-userdb.yml");
    @Container
+   //TODO 01 explain compose syntax
    private static final DockerComposeContainer COMPOSE_CONTAINER =
       new DockerComposeContainer(DOCKER_COMPOSE)
          .withLocalCompose(true)

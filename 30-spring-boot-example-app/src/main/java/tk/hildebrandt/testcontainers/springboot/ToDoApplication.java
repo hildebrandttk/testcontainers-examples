@@ -39,7 +39,6 @@ public class ToDoApplication implements CommandLineRunner {
             .stream()
             .map(name -> name.split(" "))
             .collect(Collectors.toList());
-      //TODO use repositorys
 
       // Use a Java 8 stream to print out each tuple of the list
       splitUpNames.forEach(name -> LOG.info(String

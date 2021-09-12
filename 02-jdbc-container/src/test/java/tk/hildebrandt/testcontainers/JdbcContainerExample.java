@@ -6,13 +6,16 @@ import java.sql.SQLException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testcontainers.containers.JdbcDatabaseContainer;
-import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 
 public class JdbcContainerExample {
 
    private static final Logger LOG = LoggerFactory.getLogger(
       JdbcContainerExample.class);
+   private static final int POSTGRES_PORT = 5432;
+   private static final String POSTGRES_PASSWORD = "test1234";
+   private static final String POSTGRES_USER = "test";
 
    public static void main(String[] args) {
       try {
@@ -23,14 +26,26 @@ public class JdbcContainerExample {
    }
 
    private static void runContainer() throws Exception {
-      JdbcDatabaseContainer postgresContainer =
-         new PostgreSQLContainer();
-      postgresContainer.start();
-      printDatabaseNameAndVersion(postgresContainer.getJdbcUrl(),
-         postgresContainer.getUsername(), postgresContainer.getPassword());
-      postgresContainer.stop();
+//      TODO replace with JdbcContainer
+      GenericContainer genericContainer = new GenericContainer("postgres:11")
+         .withLogConsumer(new Slf4jLogConsumer(LOG))
+         .withEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD)
+         .withEnv("POSTGRES_USER", POSTGRES_USER)
+         .withExposedPorts(POSTGRES_PORT);
+      genericContainer.start();
+      //TODO use url from container
+      printDatabaseNameAndVersion(generateJdbcUrl(genericContainer), POSTGRES_USER, POSTGRES_PASSWORD);
+      genericContainer.stop();
    }
 
+   @SuppressWarnings("unchecked")
+   private static String generateJdbcUrl(
+      GenericContainer genericContainer) {
+      Integer servicePort = genericContainer.getMappedPort(POSTGRES_PORT);
+      return String
+         .format("jdbc:postgresql://localhost:%d/?loggerLevel=OFF",
+            servicePort);
+   }
    private static void printDatabaseNameAndVersion(String jdbcUrl1, String user,
                                                    String password)
       throws SQLException {

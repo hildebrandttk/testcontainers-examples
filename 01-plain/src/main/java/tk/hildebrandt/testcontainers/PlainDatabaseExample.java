@@ -16,32 +16,33 @@ public class PlainDatabaseExample {
    private static final int POSTGRES_PORT = 5432;
    private static final String POSTGRES_PASSWORD = "test1234";
    private static final String POSTGRES_USER = "test";
+   public static final String IMAGE_NAME = "postgres";
+   public static final String POSTGRES_STARTED_LOG_MESSAGE = ".*IPv6.*address.*";
 
    public static void main(String[] args) {
       try {
          runContainer();
-      } catch (Exception ignore) {
-         //
+      } catch (Exception e) {
+         LOG.error("Error running container", e);
       }
    }
 
    @SuppressWarnings("unchecked")
    private static void runContainer() throws Exception {
-      GenericContainer genericContainer = new GenericContainer("postgres:12");
-      genericContainer.withLogConsumer(new Slf4jLogConsumer(LOG));
-      genericContainer.addEnv("POSTGRES_PASSWORD", POSTGRES_PASSWORD);
-      genericContainer.addEnv("POSTGRES_USER", POSTGRES_USER);
-      genericContainer.addExposedPort(POSTGRES_PORT);
-      genericContainer.start();
-      String jdbcUrl = generateJdbcUrl(genericContainer);
-      printDatabaseNameAndVersion(jdbcUrl, POSTGRES_USER, POSTGRES_PASSWORD);
-      genericContainer.stop();
+      //TODO requirements: grade, java, docker, nothing else!
+      //TODO create container
+      //TODO start container
+      //TODO stop container
+      //TODO log container output
+      //TODO configure container to
+      //TODO print database name and version
    }
 
    @SuppressWarnings("unchecked")
    private static String generateJdbcUrl(
       GenericContainer genericContainer) {
-      Integer servicePort = genericContainer.getMappedPort(POSTGRES_PORT);
+//      TODO port mapping
+      Integer servicePort = POSTGRES_PORT;
       return String
          .format("jdbc:postgresql://localhost:%d/?loggerLevel=OFF",
             servicePort);

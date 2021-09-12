@@ -16,7 +16,7 @@ import static junit.framework.TestCase.assertTrue;
 
 public class JUnit4PerTest {
 
-   @Rule
+   //TODO start for every test execution
    public PostgreSQLContainer postgreSQLContainer =
       //to create this image run docker/build.(sh|bat)
       new PostgreSQLContainer("postgres:11-userdb")

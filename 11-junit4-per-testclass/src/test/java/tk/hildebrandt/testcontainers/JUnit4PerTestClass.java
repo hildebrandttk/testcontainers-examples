@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.testcontainers.containers.PostgreSQLContainer;
 
@@ -16,8 +17,9 @@ import static junit.framework.TestCase.assertTrue;
 
 public class JUnit4PerTestClass {
 
-   @ClassRule
-   public static PostgreSQLContainer postgreSQLContainer =
+   @Rule
+   //TODO start only once for test class
+   public PostgreSQLContainer postgreSQLContainer =
       new PostgreSQLContainer("postgres:11-userdb");
 
    @Test

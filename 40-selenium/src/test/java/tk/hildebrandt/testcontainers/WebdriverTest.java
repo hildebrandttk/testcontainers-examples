@@ -1,9 +1,10 @@
 package tk.hildebrandt.testcontainers;
 
-import org.junit.jupiter.api.Test;
+import org.junit.ClassRule;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,22 +24,23 @@ public class WebdriverTest {
       SLF4JBridgeHandler.install();
    }
 
+   //TODO create container
    @Container
    public static BrowserWebDriverContainer CHROME =
-      new BrowserWebDriverContainer()
-         .withCapabilities(new ChromeOptions());
+      null;
 
    @Test
    public void searchConferenceOnBing() {
-      RemoteWebDriver webDriver = CHROME.getWebDriver();
+//      TODO init WebDriver
+        RemoteWebDriver webDriver = new ChromeDriver();
       webDriver.get("https://www.bing.com");
       WebDriverWait wait = new WebDriverWait(webDriver, 10);
       wait.until(ExpectedConditions.elementToBeClickable(By.id("sb_form_q")));
       WebElement searchField = webDriver.findElement(By.id("sb_form_q"));
-      searchField.sendKeys("german testing day");
+      searchField.sendKeys("testcontainers");
       webDriver.findElement(By.cssSelector("label[for=sb_form_go]")).click();
       WebElement conferenceLink =
          webDriver.findElement(By.cssSelector("li.b_algo h2 a"));
-      assertEquals("https://www.germantestingday.info/", conferenceLink.getAttribute("href"));
+      assertEquals("https://www.testcontainers.org/", conferenceLink.getAttribute("href"));
    }
 }

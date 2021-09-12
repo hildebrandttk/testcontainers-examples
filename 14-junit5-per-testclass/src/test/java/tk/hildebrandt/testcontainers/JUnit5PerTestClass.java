@@ -20,7 +20,8 @@ import static junit.framework.TestCase.assertTrue;
 class JUnit5PerTestClass {
 
    @Container
-   private static PostgreSQLContainer POSTGRESQL_CONTAINER =
+   //TODO start container once per test class
+   private PostgreSQLContainer POSTGRESQL_CONTAINER =
       new PostgreSQLContainer("postgres:11-userdb")
          .withDatabaseName("userdb")
          .withUsername("userdb")

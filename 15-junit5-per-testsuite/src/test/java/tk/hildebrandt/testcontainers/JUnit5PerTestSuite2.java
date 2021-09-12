@@ -6,10 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import org.junit.jupiter.api.Test;
+import org.testcontainers.junit.jupiter.Testcontainers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static junit.framework.TestCase.assertFalse;
 
+@Testcontainers
 class JUnit5PerTestSuite2 extends AbstractJUnit5PerTestSuite {
 
    @Test

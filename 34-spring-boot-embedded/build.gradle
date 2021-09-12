@@ -1,4 +1,5 @@
 dependencies {
+   //TODO embedded-postgresql and spring-cloud-starter are required
    testImplementation group: 'com.playtika.testcontainers',
       name: 'embedded-postgresql', version: embeddedPostgresVersion
    testImplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap',
