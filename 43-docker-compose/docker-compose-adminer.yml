@@ -4,7 +4,7 @@
 postgres:
   image: postgres:11-userdb
 mysql:
-  image: mysql
+  image: mysql:5.7
   environment:
     MYSQL_DATABASE: userdb \
     MYSQL_USER: userdb \
