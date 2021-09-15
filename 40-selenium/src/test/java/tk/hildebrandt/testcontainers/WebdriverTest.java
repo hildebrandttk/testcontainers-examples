@@ -42,5 +42,6 @@ public class WebdriverTest {
       WebElement conferenceLink =
          webDriver.findElement(By.cssSelector("li.b_algo h2 a"));
       assertEquals("https://www.testcontainers.org/", conferenceLink.getAttribute("href"));
+      webDriver.close();
    }
 }
