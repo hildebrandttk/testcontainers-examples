@@ -24,7 +24,7 @@ public class JdbcContainerExample {
 
    private static void runContainer() throws Exception {
       JdbcDatabaseContainer postgresContainer =
-         new PostgreSQLContainer();
+         new PostgreSQLContainer("postgres:12");
       postgresContainer.start();
       printDatabaseNameAndVersion(postgresContainer.getJdbcUrl(),
          postgresContainer.getUsername(), postgresContainer.getPassword());
