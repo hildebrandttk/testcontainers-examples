@@ -1,10 +1,10 @@
 package tk.hildebrandt.testcontainers;
 
-import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,7 +32,7 @@ public class WebdriverTest {
    @Test
    public void searchConferenceOnBing() {
 //      TODO init WebDriver
-        RemoteWebDriver webDriver = new ChromeDriver();
+      RemoteWebDriver webDriver = new ChromeDriver();
       webDriver.get("https://www.bing.com");
       WebDriverWait wait = new WebDriverWait(webDriver, 10);
       wait.until(ExpectedConditions.elementToBeClickable(By.id("sb_form_q")));
