@@ -17,7 +17,6 @@ public class PlainDatabaseExample {
    private static final String POSTGRES_PASSWORD = "test1234";
    private static final String POSTGRES_USER = "test";
    public static final String IMAGE_NAME = "postgres";
-   public static final String POSTGRES_STARTED_LOG_MESSAGE = ".*IPv6.*address.*";
 
    public static void main(String[] args) {
       try {

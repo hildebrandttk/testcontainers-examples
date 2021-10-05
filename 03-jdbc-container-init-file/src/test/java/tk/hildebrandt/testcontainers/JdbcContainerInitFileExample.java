@@ -30,13 +30,13 @@ public class JdbcContainerInitFileExample {
          new PostgreSQLContainer("postgres:12");
       //TODO add test data on startup
       postgresContainer.start();
-      printDatabaseNameAndVersion(postgresContainer.getJdbcUrl(),
+      printUserData(postgresContainer.getJdbcUrl(),
          postgresContainer.getUsername(), postgresContainer.getPassword());
       postgresContainer.stop();
    }
 
-   private static void printDatabaseNameAndVersion(String jdbcUrl, String user,
-                                                   String password)
+   private static void printUserData(String jdbcUrl, String user,
+                                     String password)
       throws SQLException {
       try (Connection connection = DriverManager
          .getConnection(jdbcUrl, user, password)) {
