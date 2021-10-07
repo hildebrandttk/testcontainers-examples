@@ -19,6 +19,7 @@ include ':01-plain',
    ':33-spring-boot-junit-5-per-testsuite',
    ':34-spring-boot-embedded',
    ':35-spring-boot-testcontainers-jdbc-driver',
+   ':36-spring-boot-junit-5-bean',
    ':40-selenium',
    ':41-selenium-recording',
    ':42-cucumber',
@@ -46,6 +47,7 @@ project(':33-spring-boot-junit-5-per-testsuite').projectDir =
    "$rootDir/33-spring-boot-junit-5-per-testsuite" as File
 project(':34-spring-boot-embedded').projectDir = "$rootDir/34-spring-boot-embedded" as File
 project(':35-spring-boot-testcontainers-jdbc-driver').projectDir = "$rootDir/35-spring-boot-testcontainers-jdbc-driver" as File
+project(':36-spring-boot-junit-5-bean').projectDir = "$rootDir/36-spring-boot-junit-5-bean" as File
 project(':40-selenium').projectDir = "$rootDir/40-selenium" as File
 project(':41-selenium-recording').projectDir = "$rootDir/41-selenium-recording" as File
 project(':42-cucumber').projectDir = "$rootDir/42-cucumber" as File
