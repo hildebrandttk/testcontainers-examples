@@ -12,17 +12,20 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @EnableJdbcRepositories
 public class DatabaseTestConfiguration {
 
-   //TODO create bean
+   @Bean(initMethod = "start", destroyMethod = "stop")
+   PostgreSQLContainer postgreSQLContainer() {
+      return new PostgreSQLContainer("postgres:11-userdb");
+   }
 
    @Bean
-   DataSource dataSource() {
+   DataSource dataSource(PostgreSQLContainer postgreSQLContainer) {
       return DataSourceBuilder
          .create()
-//         .url(postgreSQLContainer.getJdbcUrl())
-//         .username(
-//            postgreSQLContainer.getUsername())
-//         .password(
-//            postgreSQLContainer.getPassword())
+         .url(postgreSQLContainer.getJdbcUrl())
+         .username(
+            postgreSQLContainer.getUsername())
+         .password(
+            postgreSQLContainer.getPassword())
          .build();
    }
 }
