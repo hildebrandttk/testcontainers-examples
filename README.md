@@ -24,6 +24,7 @@ adminer as cucumber steps. Geb tests drive the selenium tests with the login. Cu
 
 *List of docker images for preload*
 
+```bash
 docker pull postgres:9.6
 docker pull postgres:10
 docker pull postgres:11
@@ -38,3 +39,4 @@ docker pull selenium/standalone-chrome-debug:3.141.59
 docker pull selenium/standalone-firefox-debug:3.141.59
 docker pull adoptopenjdk:11-hotspot
 docker pull testcontainers/ryuk:0.3.1
+```
