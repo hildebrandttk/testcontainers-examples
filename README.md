@@ -21,3 +21,20 @@ adminer as cucumber steps. Geb tests drive the selenium tests with the login. Cu
  https://www.adminer.org/de/
 + 43-docker-compose: use docker-compose to spin off an complex environment under test.  
 * docker: contains a script and dockerfiles to create prefilled mysql and postgres images used by some examples.
+
+*List of docker images for preload*
+
+docker pull postgres:9.6
+docker pull postgres:10
+docker pull postgres:11
+docker pull postgres:12
+docker pull postgres:13
+docker pull postgres:14
+docker pull postgres:latest
+docker pull mysql:5.7
+docker pull mysql:8
+docker pull adminer:latest
+docker pull selenium/standalone-chrome-debug:3.141.59
+docker pull selenium/standalone-firefox-debug:3.141.59
+docker pull adoptopenjdk:11-hotspot
+docker pull testcontainers/ryuk:0.3.1
