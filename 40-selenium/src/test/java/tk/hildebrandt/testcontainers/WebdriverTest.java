@@ -7,8 +7,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.LoggerFactory;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 import org.testcontainers.containers.BrowserWebDriverContainer;
+import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
@@ -25,8 +27,9 @@ public class WebdriverTest {
 
    @Container
    public static BrowserWebDriverContainer CHROME =
-      new BrowserWebDriverContainer()
-         .withCapabilities(new ChromeOptions());
+           (BrowserWebDriverContainer) new BrowserWebDriverContainer()
+              .withCapabilities(new ChromeOptions().addArguments("--disable-dev-shm-usage"))
+              .withSharedMemorySize(2147483648L);
 
    @Test
    public void searchConferenceOnBing() {

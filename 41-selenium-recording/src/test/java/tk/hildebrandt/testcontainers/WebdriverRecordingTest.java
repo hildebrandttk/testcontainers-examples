@@ -28,12 +28,13 @@ public class WebdriverRecordingTest {
 
    @Container
    public static BrowserWebDriverContainer CHROME =
-      new BrowserWebDriverContainer()
-         .withCapabilities(new ChromeOptions())
-         .withRecordingMode(
-            BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
-            new File("."),
-            VncRecordingContainer.VncRecordingFormat.MP4);
+           (BrowserWebDriverContainer) new BrowserWebDriverContainer()
+              .withCapabilities(new ChromeOptions().addArguments("--disable-dev-shm-usage"))
+              .withRecordingMode(
+                 BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
+                 new File("."),
+                 VncRecordingContainer.VncRecordingFormat.MP4)
+              .withSharedMemorySize(2147483648L);
 
    @Test
    public void searchConferenceOnBing() {

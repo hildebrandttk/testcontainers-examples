@@ -5,8 +5,10 @@ import geb.Configuration
 import geb.ConfigurationLoader
 import geb.Page
 import org.openqa.selenium.chrome.ChromeOptions
+import org.slf4j.LoggerFactory
 import org.testcontainers.containers.BrowserWebDriverContainer
 import org.testcontainers.containers.VncRecordingContainer
+import org.testcontainers.containers.output.Slf4jLogConsumer
 import tk.hildebrandt.testcontainers.TestContext
 
 class GebEnabledStep {
@@ -37,12 +39,13 @@ class GebEnabledStep {
 
    Browser createBrowser() {
       testContext.webDriverContainer = new BrowserWebDriverContainer()
-         .withCapabilities(new ChromeOptions())
+         .withCapabilities(new ChromeOptions().addArguments("--disable-dev-shm-usage"))
          .withRecordingMode(
             BrowserWebDriverContainer.VncRecordingMode.RECORD_ALL,
             new File(RECORDING_DIR),
             VncRecordingContainer.VncRecordingFormat.MP4)
          .withRecordingFileFactory(new CustomRecordingFileFactory())
+         .withSharedMemorySize(2147483648L) as BrowserWebDriverContainer
       testContext.webDriverContainer.withNetwork(testContext.network)
       testContext.webDriverContainer.start()
       new Browser(createConf())

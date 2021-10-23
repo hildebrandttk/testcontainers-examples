@@ -27,7 +27,6 @@ class JUnit5DockerComposeWaitingTest {
    @Container
    private static final DockerComposeContainer COMPOSE_CONTAINER =
       new DockerComposeContainer(new File("docker-compose-adminer.yml"))
-         .withLocalCompose(true)
          .withExposedService(POSTGRES_SERVICE_NAME, POSTGRES_PORT,
             Wait.forListeningPort())
          .withExposedService("adminer_1", ADMINER_PORT,

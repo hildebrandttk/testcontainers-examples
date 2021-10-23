@@ -27,7 +27,6 @@ class JUnit5DockerComposeTest {
    @Container
    private static final DockerComposeContainer COMPOSE_CONTAINER =
       new DockerComposeContainer(DOCKER_COMPOSE)
-         .withLocalCompose(true)
          .withExposedService(POSTGRES_SERVICE_NAME, POSTGRESS_PORT);
 
    private Connection createConnection() throws SQLException {
