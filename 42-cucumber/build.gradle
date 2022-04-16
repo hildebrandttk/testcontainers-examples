@@ -7,24 +7,21 @@ test {
 }
 
 dependencies {
-   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
+   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
+   testImplementation group: 'org.testcontainers', name: 'testcontainers'
    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: cucumberVersion
    testImplementation group: 'io.cucumber', name: 'cucumber-groovy', version: cucumberGroovyVersion
    testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: cucumberVersion
-   testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer',
-      version: cucumberVersion
+   testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: cucumberVersion
    testImplementation group: 'org.testng', name: 'testng', version: testNgVersion
    testImplementation group: 'de.monochromata.cucumber', name: 'reporting-plugin', version: cucumberReportingVersion
 
-   testImplementation group: 'org.codehaus.groovy', name: 'groovy-all',
-      version: groovyVersion
+   testImplementation group: 'org.codehaus.groovy', name: 'groovy-all', version: groovyVersion
    testImplementation group: 'org.gebish', name: 'geb-core', version: gebVersion
 
    testImplementation group: 'org.testcontainers', name: 'selenium', version: testContainersVersion
-   testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-api',
-      version: seleniumJavaVersion
-   testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java',
-      version: seleniumJavaVersion
+   testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version: seleniumJavaVersion
+   testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: seleniumJavaVersion
 
    testImplementation group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
    testImplementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion

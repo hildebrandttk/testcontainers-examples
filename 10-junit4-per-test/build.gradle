@@ -1,9 +1,8 @@
 dependencies {
+   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
    testImplementation group: 'junit', name: 'junit', version: junit4Version
-   testImplementation group: 'org.testcontainers', name: 'testcontainers',
-      version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'postgresql',
-      version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'testcontainers'
+   testImplementation group: 'org.testcontainers', name: 'postgresql'
    testImplementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
    testImplementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
 }

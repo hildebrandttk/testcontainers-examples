@@ -1,13 +1,10 @@
 dependencies {
-   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
-   testImplementation group: 'org.testcontainers', name: 'testcontainers',
-      version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'junit-jupiter',
-      version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'postgresql',
-      version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'testcontainers'
+   testImplementation group: 'org.testcontainers', name: 'junit-jupiter'
+   testImplementation group: 'org.testcontainers', name: 'postgresql'
    testImplementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
    testImplementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
    implementation group: 'org.apache.commons', name: 'commons-dbcp2', version: commonsDbcpVersion

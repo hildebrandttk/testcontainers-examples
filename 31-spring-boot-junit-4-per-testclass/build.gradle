@@ -1,9 +1,13 @@
 dependencies {
-   testImplementation group: 'junit', name: 'junit', version: junit4Version
-   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: springBootVersion
-   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
    testImplementation project(':30-spring-boot-example-app')
+   testImplementation group: 'org.springframework.data', name: 'spring-data-jdbc'
+
+   testImplementation enforcedPlatform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
+   testImplementation group: 'junit', name: 'junit', version: junit4Version
+   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+   testImplementation group: 'org.testcontainers', name: 'testcontainers'
+   testImplementation group: 'org.testcontainers', name: 'postgresql'
 }
 
 configurations.all {

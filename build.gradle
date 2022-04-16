@@ -24,26 +24,10 @@ subprojects {
    }
    configurations.all {
       resolutionStrategy {
-         failOnVersionConflict()
+//         failOnVersionConflict()
 
-         force "org.springframework.data:spring-data-commons:${springBootVersion}",
-            "org.springframework.data:spring-data-relational:${springDataJdbcVersion}",
-            "org.slf4j:slf4j-api:${slf4jVersion}",
-            "junit:junit:${junit4Version}",
-            "org.junit.jupiter:junit-jupiter-api:${junit5Version}",
-            "org.junit.jupiter:junit-jupiter:${junit5Version}",
-            "org.junit.vintage:junit-vintage-engine:${junit5Version}",
-            "org.apiguardian:apiguardian-api:1.1.2",
-            "io.cucumber:cucumber-core:${cucumberVersion}",
-            "org.apache.ant:ant:${antVersion}",
-            "org.apache.ant:ant-launcher:${antVersion}",
-            "io.cucumber:messages:13.0.1",
-            "org.apache.commons:commons-lang3:3.12.0",
-            "commons-logging:commons-logging:1.2",
-            "net.java.dev.jna:jna:5.5.0",
-            "com.google.guava:guava:31.1-jre",
-            "org.testng:testng:${testNgVersion}",
-            "org.checkerframework:checker-qual:3.21.4"
+         force "junit:junit:${junit4Version}",
+            "io.cucumber:cucumber-core:${cucumberVersion}"
 
          eachDependency { DependencyResolveDetails details ->
             if (details.requested.group == 'org.codehaus.groovy') {

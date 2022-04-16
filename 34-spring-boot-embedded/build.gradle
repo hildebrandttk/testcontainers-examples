@@ -1,17 +1,17 @@
 dependencies {
-   testImplementation group: 'com.playtika.testcontainers',
-      name: 'embedded-postgresql', version: embeddedPostgresVersion
-   testImplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap',
-      version: springCloudStarterVersion
-
    testImplementation project(':30-spring-boot-example-app')
-   testImplementation group: 'org.springframework.boot',
-      name: 'spring-boot-starter-test', version: springBootVersion
-   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation group: 'org.springframework.data', name: 'spring-data-jdbc'
+
+   testImplementation enforcedPlatform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
+
+   testImplementation group: 'com.playtika.testcontainers', name: 'embedded-postgresql', version: embeddedPostgresVersion
+   testImplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: springCloudStarterVersion
+   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
-   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'testcontainers'
+   testImplementation group: 'org.testcontainers', name: 'junit-jupiter'
 }
 
 test {

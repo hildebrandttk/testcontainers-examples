@@ -1,23 +1,19 @@
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'java-library'
+plugins {
+   id 'org.springframework.boot'
+   id 'java-library'
+}
+
 dependencies {
-   implementation group: 'org.springframework.boot', name: 'spring-boot-dependencies',
-      version: springBootVersion
-   implementation group: 'org.springframework.boot', name: 'spring-boot-starter',
-      version: springBootVersion
-   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc',
-      version: springBootVersion
-   api group: 'org.springframework.data', name: 'spring-data-jdbc', version: springDataJdbcVersion
-   implementation "org.springframework.data:spring-data-commons:${springBootVersion}"
-   implementation "org.springframework.data:spring-data-relational:${springDataJdbcVersion}"
+   implementation enforcedPlatform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+
+   implementation group: 'org.springframework.boot', name: 'spring-boot-starter'
+   implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc'
+   implementation group: 'org.springframework.data', name: 'spring-data-jdbc'
    implementation group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
    implementation group: 'com.h2database', name: 'h2', version: h2JdbcDriverVersion
    implementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
 
-   testImplementation group: 'org.springframework.boot',
-      name: 'spring-boot-starter-test', version: springBootVersion
-   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
 }

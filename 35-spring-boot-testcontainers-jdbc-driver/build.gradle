@@ -1,13 +1,16 @@
 dependencies {
    testImplementation project(':30-spring-boot-example-app')
-   testImplementation group: 'org.springframework.boot',
-      name: 'spring-boot-starter-test', version: springBootVersion
-   testImplementation(platform("org.junit:junit-bom:${junit5Version}"))
+   testImplementation group: 'org.springframework.data', name: 'spring-data-jdbc'
+
+   testImplementation enforcedPlatform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
+
+   testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine'
    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api'
-   testImplementation group: 'org.testcontainers', name: 'testcontainers', version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: testContainersVersion
-   testImplementation group: 'org.testcontainers', name: 'postgresql', version: testContainersVersion
+   testImplementation group: 'org.testcontainers', name: 'testcontainers'
+   testImplementation group: 'org.testcontainers', name: 'junit-jupiter'
+   testImplementation group: 'org.testcontainers', name: 'postgresql'
 }
 
 test {
