@@ -19,7 +19,7 @@ permissions:
 jobs:
   check:
 
-    runs-on: Default
+    runs-on: host
 
     steps:
     - uses: actions/checkout@v3
