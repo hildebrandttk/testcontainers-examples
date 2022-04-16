@@ -1,6 +1,4 @@
 dependencies {
-   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
-
    testImplementation group: 'org.testcontainers', name: 'selenium'
    testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: seleniumJavaVersion
 

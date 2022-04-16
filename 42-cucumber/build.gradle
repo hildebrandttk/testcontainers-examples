@@ -7,7 +7,6 @@ test {
 }
 
 dependencies {
-   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
    testImplementation group: 'org.testcontainers', name: 'testcontainers'
    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: cucumberVersion
    testImplementation group: 'io.cucumber', name: 'cucumber-groovy', version: cucumberGroovyVersion

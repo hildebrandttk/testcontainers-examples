@@ -3,7 +3,6 @@ dependencies {
    testImplementation group: 'org.springframework.data', name: 'spring-data-jdbc'
 
    testImplementation enforcedPlatform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
 
    testImplementation group: 'com.playtika.testcontainers', name: 'embedded-postgresql', version: embeddedPostgresVersion
    testImplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-bootstrap', version: springCloudStarterVersion

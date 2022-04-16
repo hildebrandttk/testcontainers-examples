@@ -1,5 +1,4 @@
 dependencies {
-   testImplementation platform("org.testcontainers:testcontainers-bom:${testContainersVersion}")
    implementation group: 'org.testcontainers', name: 'testcontainers'
    implementation group: 'ch.qos.logback', name:'logback-classic', version: logbackVersion
    implementation group: 'org.testcontainers', name: 'postgresql'
