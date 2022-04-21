@@ -1,6 +1,8 @@
 package tk.hildebrandt.testcontainers;
 
 import java.io.File;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -40,7 +42,7 @@ public class WebdriverRecordingTest {
    public void searchConferenceOnBing() {
       RemoteWebDriver webDriver = CHROME.getWebDriver();
       webDriver.get("https://www.bing.com");
-      WebDriverWait wait = new WebDriverWait(webDriver, 10);
+      WebDriverWait wait = new WebDriverWait(webDriver, Duration.of(10, ChronoUnit.SECONDS));
       wait.until(ExpectedConditions.elementToBeClickable(By.id("sb_form_q")));
       WebElement searchField = webDriver.findElement(By.id("sb_form_q"));
       searchField.sendKeys("testcontainers");
