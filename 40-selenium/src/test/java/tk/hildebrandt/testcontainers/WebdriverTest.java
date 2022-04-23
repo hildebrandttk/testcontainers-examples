@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -16,6 +17,7 @@ import org.testcontainers.containers.BrowserWebDriverContainer;
 import org.testcontainers.containers.output.Slf4jLogConsumer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.utility.DockerImageName;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -30,9 +32,10 @@ public class WebdriverTest {
 
    @Container
    public static BrowserWebDriverContainer CHROME =
-           (BrowserWebDriverContainer) new BrowserWebDriverContainer()
-              .withCapabilities(new ChromeOptions().addArguments("--disable-dev-shm-usage"))
-              .withSharedMemorySize(2147483648L);
+           (BrowserWebDriverContainer) new BrowserWebDriverContainer(
+                   DockerImageName.parse("seleniarm/standalone-chromium:latest")
+                           .asCompatibleSubstituteFor("selenium/standalone-chrome"))
+              .withCapabilities(new ChromeOptions().addArguments());
 
    @Test
    public void searchConferenceOnBing() {
