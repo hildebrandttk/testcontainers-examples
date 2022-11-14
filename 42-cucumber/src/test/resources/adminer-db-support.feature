@@ -12,6 +12,8 @@ Feature: Multiple database support
          | postgres | 10          | adminertest |
          | postgres | 11          | adminertest |
          | postgres | 12          | adminertest |
+         | postgres | 13          | adminertest |
+         | postgres | 14          | adminertest |
          | postgres | latest      | adminertest |
          | mysql    | 5.7         | adminertest |
          | mysql    | 8           | adminertest |
